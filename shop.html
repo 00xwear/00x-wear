@@ -145,6 +145,14 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 .lightbox-counter{position:absolute;bottom:20px;color:rgba(255,255,255,0.6);font-size:0.9rem;font-weight:600;letter-spacing:2px;}
 .product-img{cursor:zoom-in;}
 
+
+/* FILTERS */
+.filter-wrap{display:flex;flex-wrap:wrap;gap:0.8rem;justify-content:center;margin-bottom:3rem;}
+.filter-btn{padding:0.6rem 1.8rem;border-radius:50px;border:2px solid rgba(10,116,218,0.2);background:#fff;color:#555;font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.3s;}
+.filter-btn:hover,.filter-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(10,116,218,0.3);}
+.product-card{transition:all 0.4s;}
+.product-card.hidden{display:none;}
+
 /* MOBILE */
 @media(max-width:768px){
 .jeans-wrap{grid-template-columns:1fr;}
@@ -186,6 +194,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 <a href="https://vk.ru/00x.wear" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
 <a href="https://www.tiktok.com/@00x.wear" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
 <a href="https://www.instagram.com/00xwear" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+<a href="https://www.avito.ru" target="_blank" class="social-icon"><i class="fas fa-store"></i></a>
 </div>
 </div>
 </div>
@@ -217,10 +226,18 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 <div class="section-label reveal">Коллекция</div>
 <h2 class="section-title reveal">Ката<span>лог</span></h2>
 <p class="section-desc reveal">Все позиции в наличии — отправка по РФ / РБ / КЗ</p>
-<div class="catalog-grid">
+<div class="filter-wrap">
+<button class="filter-btn active" onclick="filterCat('all')">All</button>
+<button class="filter-btn" onclick="filterCat('jeans')">Jeans</button>
+<button class="filter-btn" onclick="filterCat('hoodies')">Hoodies</button>
+<button class="filter-btn" onclick="filterCat('zips')">Zip Hoodies</button>
+<button class="filter-btn" onclick="filterCat('tees')">Tees</button>
+<button class="filter-btn" onclick="filterCat('other')">Other</button>
+</div>
+<div class="catalog-grid" id="catalogGrid">
 
 <!-- Five Elementz -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/SDyn1jZc/photo-2-2026-03-20-10-12-33.jpg" alt="Five Elementz Front" style="width:100%;height:320px;object-fit:cover;display:block;" data-slide-group="five">
 <img class="slide-img" src="https://i.ibb.co/YTNywPz9/photo-1-2026-03-20-10-12-33.jpg" alt="Five Elementz Back" style="width:100%;height:320px;object-fit:cover;display:none;" data-slide-group="five">
@@ -284,7 +301,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 
 
 <!-- Southpole Hoodie -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/kgs3QB45/photo-9-2026-03-20-10-12-33.jpg" alt="Southpole Hoodie XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">XL</span>
@@ -301,7 +318,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Red Ape Jeans -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/7J1sXzQJ/photo-10-2026-03-20-10-12-33.jpg" alt="Red Ape Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/TBQ6HV3d/photo-11-2026-03-20-10-12-33.jpg" alt="Red Ape Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -322,7 +339,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Southpole Red Tab Jeans -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/9m2N7TSY/photo-12-2026-03-20-10-12-33.jpg" alt="Southpole Red Tab Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/fz5hyCnw/photo-13-2026-03-20-10-12-33.jpg" alt="Southpole Red Tab Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -341,7 +358,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Coogi Jeans W38 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/h1fgTZFf/photo-14-2026-03-20-10-12-33.jpg" alt="Coogi W38 Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/fYk9jmGd/photo-15-2026-03-20-10-12-33.jpg" alt="Coogi W38 Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -361,7 +378,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Southpole Crossbone Bomber -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/fjF96Nh/photo-16-2026-03-20-10-12-33.jpg" alt="Southpole Bomber Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/hx2HN2Bb/photo-17-2026-03-20-10-12-33.jpg" alt="Southpole Bomber Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -380,7 +397,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- JNCO Hoodie -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/CKnQT7s2/photo-18-2026-03-20-10-12-33.jpg" alt="JNCO Hoodie L" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">L(XL)</span>
@@ -397,7 +414,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Akademiks Zip-Hoodie -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/vC0CBMSf/photo-19-2026-03-20-10-12-33.jpg" alt="Akademiks Zip-Hoodie 2XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">2XL</span>
@@ -414,7 +431,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Brooklyn Express Hoodie -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/W4f9n1gN/photo-20-2026-03-20-10-12-33.jpg" alt="Brooklyn Express Hoodie 2XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">2XL</span>
@@ -432,7 +449,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- LRG Tee -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="tees">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/LdG6XTwK/photo-21-2026-03-20-10-12-33.jpg" alt="LRG Tee L" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">L</span>
@@ -449,7 +466,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- COOGI Sweatshirt -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/tps33m5N/photo-22-2026-03-20-10-12-33.jpg" alt="COOGI Sweatshirt M" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">M</span>
@@ -467,7 +484,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Dollar Zip-Hoodie -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/hFxH6RGk/photo-23-2026-03-20-10-12-33.jpg" alt="Dollar Zip-Hoodie L-XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">L-XL</span>
@@ -485,7 +502,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Phat Farm Jeans -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/8D5x40Wb/photo-24-2026-03-20-10-12-33.jpg" alt="Phat Farm Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/n8qcS65g/photo-25-2026-03-20-10-12-33.jpg" alt="Phat Farm Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -506,7 +523,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Southpole Brown Tab Jeans W44 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/RprQrwzy/photo-26-2026-03-20-10-12-33.jpg" alt="Southpole Brown Tab Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/d00zdMrT/photo-27-2026-03-20-10-12-33.jpg" alt="Southpole Brown Tab Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -527,7 +544,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Ecko Unltd Jeans -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/NQMM0JT/photo-28-2026-03-20-10-12-33.jpg" alt="Ecko Unltd Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/zWYq0rcb/photo-29-2026-03-20-10-12-33.jpg" alt="Ecko Unltd Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -548,7 +565,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Rocawear Jeans W40 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/4wQvbBZk/photo-30-2026-03-20-10-12-33.jpg" alt="Rocawear W40 Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/tw5d8zcV/photo-31-2026-03-20-10-12-33.jpg" alt="Rocawear W40 Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -569,7 +586,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- LRG Jeans W40 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/9K6Nxkg/photo-32-2026-03-20-10-12-33.jpg" alt="LRG Jeans Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/5hN68gnk/photo-33-2026-03-20-10-12-33.jpg" alt="LRG Jeans Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -590,7 +607,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- LRG Jeans W34 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/zW7B9Mrk/photo-34-2026-03-20-10-12-33.jpg" alt="LRG W34 Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/sp1JYqSc/photo-35-2026-03-20-10-12-33.jpg" alt="LRG W34 Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -611,7 +628,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Spitfire BackPack -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="other">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/PZTDtjFv/photo-38-2026-03-20-10-12-33.jpg" alt="Spitfire BackPack" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">ONE SIZE</span>
@@ -628,7 +645,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Snoop Dogg Hoodie -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/WvK5X2sw/photo-39-2026-03-20-10-12-33.jpg" alt="Snoop Dogg Hoodie XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">XL</span>
@@ -646,7 +663,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Enyce Zip -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/jvtZcb52/photo-40-2026-03-20-10-12-33.jpg" alt="Enyce Zip XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">XL</span>
@@ -664,7 +681,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Hoodboyz Zip Up -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/S4QRhYZM/photo-41-2026-03-20-10-12-33.jpg" alt="Hoodboyz Zip Up L" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">L</span>
@@ -681,7 +698,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Hoodboyz Zip Up XL -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/sJX21Bgx/photo-42-2026-03-20-10-12-33.jpg" alt="Hoodboyz Zip Up XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge" style="background:linear-gradient(135deg,#f9a825,#fb8c00);">XL ⭐</span>
@@ -698,7 +715,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Enyce Zip Up XXL -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/yFvTHmfP/photo-43-2026-03-20-10-12-33.jpg" alt="Enyce Zip Up XXL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">XXL</span>
@@ -715,7 +732,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- LRG Velour Zip -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/WWMLLZPd/photo-44-2026-03-20-10-12-33.jpg" alt="LRG Velour Zip L-XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">L-XL</span>
@@ -732,7 +749,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Pelle Pelle Zip -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/29dGTLQ/photo-45-2026-03-20-10-12-33.jpg" alt="Pelle Pelle Zip XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">XL</span>
@@ -750,7 +767,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Brooklyn Express Zip -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/h19rQz49/photo-46-2026-03-20-10-12-33.jpg" alt="Brooklyn Express Zip Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/xbbwBDj/photo-47-2026-03-20-10-12-33.jpg" alt="Brooklyn Express Zip Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -770,7 +787,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Brooklyn Express Zip Up L 73 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/nNk5CPvH/photo-48-2026-03-20-10-12-33.jpg" alt="Brooklyn Express Zip Up L" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge">L</span>
@@ -787,7 +804,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Sean John Zip -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/mVVr8fHM/photo-50-2026-03-20-10-12-33.jpg" alt="Sean John Zip Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/Q0rxbW6/photo-51-2026-03-20-10-12-33.jpg" alt="Sean John Zip Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -807,7 +824,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Karl Kani Gold Zip Up -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/CKqByHvS/photo-52-2026-03-20-10-12-33.jpg" alt="Karl Kani Gold Zip Up 2XL" style="width:100%;height:320px;object-fit:cover;display:block;">
 <span class="product-badge" style="background:linear-gradient(135deg,#f9a825,#fb8c00);">2XL ✦</span>
@@ -825,7 +842,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Mass Denim Zip Up -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/FkMNmC7V/photo-53-2026-03-20-10-12-33.jpg" alt="Mass Denim 1" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/hxy7RTrc/photo-1-2026-03-20-11-12-29.jpg" alt="Mass Denim 2" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -855,7 +872,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Avirex Baggy Jeans W46 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/wryKVZCw/photo-56-2026-03-20-10-12-33.jpg" alt="Avirex Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/VcwMvVHF/photo-57-2026-03-20-10-12-33.jpg" alt="Avirex Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -876,7 +893,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Enyce Jeans W38-40 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/ZpRLtKhm/photo-60-2026-03-20-10-12-33.jpg" alt="Enyce Jeans Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/PZRWdgZv/photo-61-2026-03-20-10-12-33.jpg" alt="Enyce Jeans Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -896,7 +913,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Rocawear Jeans W42-44 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/HLxGPmQV/photo-62-2026-03-20-10-12-33.jpg" alt="Rocawear Black Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/8gQsXdWF/photo-63-2026-03-20-10-12-33.jpg" alt="Rocawear Black Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -916,7 +933,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- Rocawear Jeans W44 new -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/zWGC1XRN/photo-66-2026-03-20-10-12-33.jpg" alt="Rocawear W44 Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/C38ffxFN/photo-67-2026-03-20-10-12-33.jpg" alt="Rocawear W44 Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -937,7 +954,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- 5ive Jungle Jeans W48 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/sds8bDLV/photo-68-2026-03-20-10-12-33.jpg" alt="5ive Jungle Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/R405HPjq/photo-69-2026-03-20-10-12-33.jpg" alt="5ive Jungle Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -957,7 +974,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </div>
 
 <!-- LRG Jeans W38 -->
-<div class="product-card reveal">
+<div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
 <img class="slide-img" src="https://i.ibb.co/CK65Hvk7/photo-70-2026-03-20-10-12-33.jpg" alt="LRG W38 Front" style="width:100%;height:320px;object-fit:cover;display:block;">
 <img class="slide-img" src="https://i.ibb.co/Nq69msF/photo-71-2026-03-20-10-12-33.jpg" alt="LRG W38 Back" style="width:100%;height:320px;object-fit:cover;display:none;">
@@ -1080,6 +1097,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 <a href="https://vk.ru/00x.wear"><i class="fab fa-vk"></i></a>
 <a href="https://www.tiktok.com/@00x.wear"><i class="fab fa-tiktok"></i></a>
 <a href="https://www.instagram.com/00xwear"><i class="fab fa-instagram"></i></a>
+<a href="https://www.avito.ru"><i class="fas fa-store"></i></a>
 </div>
 <p style="color:#aaa;font-size:0.9rem;">&copy; 2026 00x Wear — Street Minimal. Все права защищены.</p>
 </div>
@@ -1178,6 +1196,20 @@ function slideCard(btn, dir) {
   imgs[current].style.display = 'none';
   const next = (current + dir + imgs.length) % imgs.length;
   imgs[next].style.display = 'block';
+}
+</script>
+
+<script>
+function filterCat(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if(cat === 'all' || card.dataset.category === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
 }
 </script>
 </body>

@@ -183,6 +183,25 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 .specs{grid-template-columns:repeat(3,1fr);}
 .jeans-btns{flex-direction:column;}
 }
+
+/* CONTACT MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:24px;padding:2.5rem 2rem;max-width:400px;width:90%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,0.3);animation:modalIn 0.3s ease;text-align:center;}
+@keyframes modalIn{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.modal-close{position:absolute;top:1rem;right:1.2rem;font-size:1.4rem;cursor:pointer;color:#aaa;background:none;border:none;line-height:1;padding:4px 8px;}
+.modal-close:hover{color:#333;}
+.modal-product-title{font-size:1.05rem;font-weight:800;color:#222;margin-bottom:0.3rem;}
+.modal-product-price{font-size:1.3rem;font-weight:900;color:var(--blue);margin-bottom:1.5rem;}
+.modal-subtitle{color:#444;margin:0 0 1.2rem;font-size:0.95rem;font-weight:600;}
+.contact-btn{width:100%;margin:0.4rem 0;padding:0.9rem 1rem;border-radius:14px;border:none;font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:0.8rem;justify-content:center;text-decoration:none;color:#fff;box-sizing:border-box;}
+.contact-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);color:#fff;text-decoration:none;}
+.contact-btn.insta{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+.contact-btn.tg{background:#0088cc;}
+.contact-btn.vk{background:#4680c2;}
+.contact-btn.avito{background:#ff9900;}
+.product-card{cursor:pointer;}
+
 </style>
 </head>
 <body>
@@ -207,7 +226,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 
 <li><a class="nav-link" href="#catalog">Каталог</a></li><li><a class="nav-link" href="#reviews">Отзывы</a></li>
 <li><a class="nav-link" href="#socials">Соцсети</a></li>
-<li><a class="nav-link" href="#order">Заявка</a></li>
+
 </ul>
 <div>
 <a href="https://t.me/wear00x" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
@@ -1103,29 +1122,7 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 </section>
 
 <!-- ФОРМА -->
-<section id="order">
-<div class="container">
-<div class="section-label reveal">Связь</div>
-<h2 class="section-title reveal">За<span>явка</span></h2>
-<p class="section-desc reveal">Оставь заявку — ответим в течение часа</p>
-<div class="form-wrap reveal">
-<div class="row g-3">
-<div class="col-md-6">
-<input type="text" class="form-control" placeholder="Имя">
-</div>
-<div class="col-md-6">
-<input type="tel" class="form-control" placeholder="Telegram / телефон">
-</div>
-<div class="col-12">
-<textarea class="form-control" rows="5" placeholder="Что интересует? Размер, цена..."></textarea>
-</div>
-<div class="col-12">
-<button class="btn-submit">Отправить заявку <i class="fas fa-paper-plane ms-2"></i></button>
-</div>
-</div>
-</div>
-</div>
-</section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -1252,54 +1249,7 @@ function filterCat(cat) {
 }
 </script>
 
-<script>
-var _orderTitle = '', _orderPrice = '';
-var BOT_TOKEN = "8709208624:AAEwYUNrJsSibgWwsNoddX8uKryodZdzUGM";
-var CHAT_ID = "7966108479";
 
-function openOrderModal(title, price) {
-  _orderTitle = title;
-  _orderPrice = price;
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalPrice').textContent = price;
-  document.getElementById('modalUsername').value = '';
-  document.getElementById('modalForm').style.display = 'block';
-  document.getElementById('modalSuccess').style.display = 'none';
-  document.getElementById('orderModal').classList.add('open');
-}
-
-function closeModal() {
-  document.getElementById('orderModal').classList.remove('open');
-}
-
-document.getElementById('orderModal').addEventListener('click', function(e) {
-  if(e.target === this) closeModal();
-});
-
-function sendOrder() {
-  var username = document.getElementById('modalUsername').value.trim();
-  if(!username) { alert('Укажите ваш Telegram username!'); return; }
-  if(!username.startsWith('@')) username = '@' + username;
-  var text = 'Новая заявка!\n\n' +
-    'Товар: ' + _orderTitle + '\n' +
-    'Цена: ' + _orderPrice + '\n' +
-    'Telegram: ' + username;
-  var ids = ["7966108479", "8024392145"];
-  Promise.all(ids.map(function(cid){
-    return fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({chat_id: cid, text: text})
-    });
-  })).then(function() {
-    document.getElementById('modalForm').style.display = 'none';
-    document.getElementById('modalSuccess').style.display = 'block';
-    setTimeout(closeModal, 2500);
-  }).catch(function() {
-    alert('Ошибка отправки.');
-  });
-}
-</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1312,5 +1262,52 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeContactModal()">&#10005;</button>
+    <div class="modal-product-title" id="contactTitle"></div>
+    <div class="modal-product-price" id="contactPrice"></div>
+    <p class="modal-subtitle">Where to message us:</p>
+    <a href="https://www.instagram.com/00xwear?igsh=MXc1cms3cm5sajJkbg%3D%3D&utm_source=qr" target="_blank" class="contact-btn insta">
+      &#128248;&nbsp; Instagram
+    </a>
+    <a href="http://t.me/manager00xwear" target="_blank" class="contact-btn tg">
+      &#128172;&nbsp; Telegram
+    </a>
+    <a href="https://vk.ru/00x.wear" target="_blank" class="contact-btn vk">
+      &#128101;&nbsp; VK
+    </a>
+    <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="contact-btn avito">
+      &#127978;&nbsp; Avito
+    </a>
+  </div>
+</div>
+
+<script>
+function openContactModal(title, price){
+  document.getElementById('contactTitle').textContent = title;
+  document.getElementById('contactPrice').textContent = price;
+  document.getElementById('contactModal').classList.add('open');
+}
+function closeContactModal(){
+  document.getElementById('contactModal').classList.remove('open');
+}
+document.getElementById('contactModal').addEventListener('click',function(e){
+  if(e.target===this) closeContactModal();
+});
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.product-card').forEach(function(card){
+    card.addEventListener('click',function(e){
+      if(e.target.closest('.prev-btn,.next-btn,.dot,.product-img')) return;
+      var name = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+      var price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
+      openContactModal(name, price);
+    });
+  });
+});
+</script>
+
 </body>
 </html>

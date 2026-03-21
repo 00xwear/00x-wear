@@ -209,6 +209,12 @@ body::before{content:'';position:fixed;inset:0;
 .filter-btn{padding:0.6rem 1.8rem;border-radius:50px;border:2px solid rgba(10,116,218,0.2);background:#fff;color:#555;font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.3s;}
 .filter-btn:hover,.filter-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(10,116,218,0.3);}
 .product-card.hidden{display:none;}
+
+.review-img-wrap{position:relative;cursor:pointer;border-radius:12px;overflow:hidden;aspect-ratio:1;background:#f0f0f0;}
+.review-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
+.review-img-wrap:hover img{transform:scale(1.05);}
+.review-img-num{position:absolute;bottom:4px;right:6px;background:rgba(0,0,0,0.5);color:#fff;font-size:0.7rem;font-weight:700;padding:1px 5px;border-radius:6px;}
+
 </style>
 </head>
 <body>
@@ -278,7 +284,7 @@ body::before{content:'';position:fixed;inset:0;
           <a href="https://t.me/blackwhiteimages/13373" target="_blank" style="color:var(--blue);font-weight:600;">#2</a>
           <a href="https://t.me/blackwhiteimages/19216" target="_blank" style="color:var(--blue);font-weight:600;">#3</a>
         </li>
-        <li>🔻 <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" style="color:var(--blue);font-weight:600;">200+ продаж на Авито</a></li>
+        <li>🔻 <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565/all/odezhda_obuv_aksessuary?sellerId=f03860def3d5d67963c6696fe8a83e21" target="_blank" style="color:var(--blue);font-weight:600;">200+ продаж на Авито</a></li>
       </ul>
     </div>
 
@@ -333,6 +339,14 @@ body::before{content:'';position:fixed;inset:0;
       <span>Мы свяжемся с вами в Telegram</span>
     </div>
   </div>
+</div>
+
+
+<div style="max-width:500px;margin:0 auto 1.5rem;position:relative;">
+  <input id="catalogSearch" type="text" placeholder="🔍 Поиск по каталогу..."
+    oninput="searchCatalog(this.value)"
+    style="width:100%;padding:0.9rem 1.4rem;border-radius:50px;border:2px solid #e0e0e0;font-size:1rem;outline:none;box-sizing:border-box;transition:border 0.2s;"
+    onfocus="this.style.borderColor='#0a74da'" onblur="this.style.borderColor='#e0e0e0'"/>
 </div>
 
 <div class="filter-wrap">
@@ -1110,39 +1124,7 @@ body::before{content:'';position:fixed;inset:0;
 </section>
 
 <!-- ОТЗЫВЫ -->
-<section id="reviews">
-<div class="container">
-<div class="section-label reveal">Покупатели</div>
-<h2 class="section-title reveal">От<span>зывы</span></h2>
-<p class="section-desc reveal">Реальные отзывы наших клиентов</p>
-<div class="reviews-grid" id="reviewsContainer">
-<div class="review-card reveal">
-<div class="review-head">
-<div class="avatar">АК</div>
-<div><div class="review-author">Алексей К.</div><div class="review-date">15 марта 2026</div></div>
-</div>
-<div class="stars">★★★★★</div>
-<div class="review-text">Джинсы огонь! Качество топ, доставка быстрая. Буду заказывать ещё.</div>
-</div>
-<div class="review-card reveal">
-<div class="review-head">
-<div class="avatar">МС</div>
-<div><div class="review-author">Максим С.</div><div class="review-date">10 марта 2026</div></div>
-</div>
-<div class="stars">★★★★★</div>
-<div class="review-text">Всё чётко, размер совпал. Выглядит дорого, носится комфортно.</div>
-</div>
-<div class="review-card reveal">
-<div class="review-head">
-<div class="avatar">ДВ</div>
-<div><div class="review-author">Дима В.</div><div class="review-date">5 марта 2026</div></div>
-</div>
-<div class="stars">★★★★★</div>
-<div class="review-text">Стиль просто вышел, особенно Baggy. Рекомендую 00xwear всем!</div>
-</div>
-</div>
-</div>
-</section>
+
 
 <!-- СОЦСЕТИ -->
 <section id="socials">
@@ -1179,6 +1161,143 @@ body::before{content:'';position:fixed;inset:0;
 
 
 <!-- FOOTER -->
+
+<!-- ОТЗЫВЫ -->
+<section id="reviews" style="padding:6rem 0;background:#fff;">
+<div class="container">
+  <div class="section-label reveal">Доверие</div>
+  <h2 class="section-title reveal">От<span>зывы</span></h2>
+  <p class="section-desc reveal">200+ довольных покупателей с 2024 года</p>
+
+  <!-- Search -->
+  <div style="max-width:500px;margin:0 auto 2.5rem;position:relative;">
+    <input id="reviewSearch" type="text" placeholder="🔍 Поиск по отзывам (номер фото...)" 
+      oninput="searchReviews(this.value)"
+      style="width:100%;padding:0.9rem 1.4rem;border-radius:50px;border:2px solid #e0e0e0;font-size:1rem;outline:none;box-sizing:border-box;transition:border 0.2s;"
+      onfocus="this.style.borderColor='#0a74da'" onblur="this.style.borderColor='#e0e0e0'"/>
+  </div>
+
+  <!-- Grid -->
+  <div id="reviewsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.8rem;">
+    <div class="review-img-wrap" onclick="openReviewLightbox(0)"><img src="https://i.ibb.co/VY5gSL5x/photo-1-2026-03-21-20-15-09.jpg" alt="Отзыв 1" loading="lazy"/><div class="review-img-num">1</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(1)"><img src="https://i.ibb.co/KzRfzw77/photo-2-2026-03-21-20-15-09.jpg" alt="Отзыв 2" loading="lazy"/><div class="review-img-num">2</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(2)"><img src="https://i.ibb.co/WNc9kJdD/photo-3-2026-03-21-20-15-09.jpg" alt="Отзыв 3" loading="lazy"/><div class="review-img-num">3</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(3)"><img src="https://i.ibb.co/C5KZP61C/photo-4-2026-03-21-20-15-09.jpg" alt="Отзыв 4" loading="lazy"/><div class="review-img-num">4</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(4)"><img src="https://i.ibb.co/spjMq631/photo-5-2026-03-21-20-15-09.jpg" alt="Отзыв 5" loading="lazy"/><div class="review-img-num">5</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(5)"><img src="https://i.ibb.co/Ps81rdtn/photo-6-2026-03-21-20-15-09.jpg" alt="Отзыв 6" loading="lazy"/><div class="review-img-num">6</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(6)"><img src="https://i.ibb.co/LX4tDPmw/photo-7-2026-03-21-20-15-09.jpg" alt="Отзыв 7" loading="lazy"/><div class="review-img-num">7</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(7)"><img src="https://i.ibb.co/DDtpcLTd/photo-8-2026-03-21-20-15-09.jpg" alt="Отзыв 8" loading="lazy"/><div class="review-img-num">8</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(8)"><img src="https://i.ibb.co/4nksCNx2/photo-9-2026-03-21-20-15-09.jpg" alt="Отзыв 9" loading="lazy"/><div class="review-img-num">9</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(9)"><img src="https://i.ibb.co/gM5L0tc9/photo-10-2026-03-21-20-15-09.jpg" alt="Отзыв 10" loading="lazy"/><div class="review-img-num">10</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(10)"><img src="https://i.ibb.co/Kc6v6bbB/photo-11-2026-03-21-20-15-09.jpg" alt="Отзыв 11" loading="lazy"/><div class="review-img-num">11</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(11)"><img src="https://i.ibb.co/5WRVMFXv/photo-12-2026-03-21-20-15-09.jpg" alt="Отзыв 12" loading="lazy"/><div class="review-img-num">12</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(12)"><img src="https://i.ibb.co/chc0pmNM/photo-13-2026-03-21-20-15-09.jpg" alt="Отзыв 13" loading="lazy"/><div class="review-img-num">13</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(13)"><img src="https://i.ibb.co/ycqbXc1n/photo-14-2026-03-21-20-15-09.jpg" alt="Отзыв 14" loading="lazy"/><div class="review-img-num">14</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(14)"><img src="https://i.ibb.co/ccGrGQv4/photo-15-2026-03-21-20-15-09.jpg" alt="Отзыв 15" loading="lazy"/><div class="review-img-num">15</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(15)"><img src="https://i.ibb.co/Qjf8Tppv/photo-16-2026-03-21-20-15-09.jpg" alt="Отзыв 16" loading="lazy"/><div class="review-img-num">16</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(16)"><img src="https://i.ibb.co/tpWp7tVL/photo-17-2026-03-21-20-15-09.jpg" alt="Отзыв 17" loading="lazy"/><div class="review-img-num">17</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(17)"><img src="https://i.ibb.co/sdbSFVJm/photo-18-2026-03-21-20-15-09.jpg" alt="Отзыв 18" loading="lazy"/><div class="review-img-num">18</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(18)"><img src="https://i.ibb.co/fjsg6y4/photo-19-2026-03-21-20-15-09.jpg" alt="Отзыв 19" loading="lazy"/><div class="review-img-num">19</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(19)"><img src="https://i.ibb.co/rghkfmz/photo-20-2026-03-21-20-15-09.jpg" alt="Отзыв 20" loading="lazy"/><div class="review-img-num">20</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(20)"><img src="https://i.ibb.co/v6RLzXgF/photo-21-2026-03-21-20-15-09.jpg" alt="Отзыв 21" loading="lazy"/><div class="review-img-num">21</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(21)"><img src="https://i.ibb.co/PZg6Sw4T/photo-22-2026-03-21-20-15-09.jpg" alt="Отзыв 22" loading="lazy"/><div class="review-img-num">22</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(22)"><img src="https://i.ibb.co/8LdDp7p1/photo-23-2026-03-21-20-15-09.jpg" alt="Отзыв 23" loading="lazy"/><div class="review-img-num">23</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(23)"><img src="https://i.ibb.co/Xr5yfT50/photo-24-2026-03-21-20-15-09.jpg" alt="Отзыв 24" loading="lazy"/><div class="review-img-num">24</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(24)"><img src="https://i.ibb.co/GQbGdb5z/photo-25-2026-03-21-20-15-09.jpg" alt="Отзыв 25" loading="lazy"/><div class="review-img-num">25</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(25)"><img src="https://i.ibb.co/3mmQKs2L/photo-26-2026-03-21-20-15-09.jpg" alt="Отзыв 26" loading="lazy"/><div class="review-img-num">26</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(26)"><img src="https://i.ibb.co/KcQ2YWqp/photo-27-2026-03-21-20-15-09.jpg" alt="Отзыв 27" loading="lazy"/><div class="review-img-num">27</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(27)"><img src="https://i.ibb.co/cSTxkQMC/photo-28-2026-03-21-20-15-09.jpg" alt="Отзыв 28" loading="lazy"/><div class="review-img-num">28</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(28)"><img src="https://i.ibb.co/zhcH0Psh/photo-29-2026-03-21-20-15-09.jpg" alt="Отзыв 29" loading="lazy"/><div class="review-img-num">29</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(29)"><img src="https://i.ibb.co/sdW9kjNq/photo-30-2026-03-21-20-15-09.jpg" alt="Отзыв 30" loading="lazy"/><div class="review-img-num">30</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(30)"><img src="https://i.ibb.co/5WJmmSXM/photo-31-2026-03-21-20-15-09.jpg" alt="Отзыв 31" loading="lazy"/><div class="review-img-num">31</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(31)"><img src="https://i.ibb.co/nMJQKHLB/photo-32-2026-03-21-20-15-09.jpg" alt="Отзыв 32" loading="lazy"/><div class="review-img-num">32</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(32)"><img src="https://i.ibb.co/1fVqnm5n/photo-33-2026-03-21-20-15-09.jpg" alt="Отзыв 33" loading="lazy"/><div class="review-img-num">33</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(33)"><img src="https://i.ibb.co/k2x37zRG/photo-34-2026-03-21-20-15-09.jpg" alt="Отзыв 34" loading="lazy"/><div class="review-img-num">34</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(34)"><img src="https://i.ibb.co/Wvr7xsjZ/photo-35-2026-03-21-20-15-09.jpg" alt="Отзыв 35" loading="lazy"/><div class="review-img-num">35</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(35)"><img src="https://i.ibb.co/8nsnzN8h/photo-36-2026-03-21-20-15-09.jpg" alt="Отзыв 36" loading="lazy"/><div class="review-img-num">36</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(36)"><img src="https://i.ibb.co/hJkhdnTV/photo-37-2026-03-21-20-15-09.jpg" alt="Отзыв 37" loading="lazy"/><div class="review-img-num">37</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(37)"><img src="https://i.ibb.co/bjgzJmbM/photo-38-2026-03-21-20-15-09.jpg" alt="Отзыв 38" loading="lazy"/><div class="review-img-num">38</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(38)"><img src="https://i.ibb.co/gbxkbLsn/photo-39-2026-03-21-20-15-09.jpg" alt="Отзыв 39" loading="lazy"/><div class="review-img-num">39</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(39)"><img src="https://i.ibb.co/qMT7dDTP/photo-40-2026-03-21-20-15-09.jpg" alt="Отзыв 40" loading="lazy"/><div class="review-img-num">40</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(40)"><img src="https://i.ibb.co/qSR8vqP/photo-41-2026-03-21-20-15-09.jpg" alt="Отзыв 41" loading="lazy"/><div class="review-img-num">41</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(41)"><img src="https://i.ibb.co/2bJ7ysp/photo-42-2026-03-21-20-15-09.jpg" alt="Отзыв 42" loading="lazy"/><div class="review-img-num">42</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(42)"><img src="https://i.ibb.co/TxkVzLdY/photo-43-2026-03-21-20-15-09.jpg" alt="Отзыв 43" loading="lazy"/><div class="review-img-num">43</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(43)"><img src="https://i.ibb.co/gM77Cgtn/photo-44-2026-03-21-20-15-09.jpg" alt="Отзыв 44" loading="lazy"/><div class="review-img-num">44</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(44)"><img src="https://i.ibb.co/d03tRFjX/photo-45-2026-03-21-20-15-09.jpg" alt="Отзыв 45" loading="lazy"/><div class="review-img-num">45</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(45)"><img src="https://i.ibb.co/5g5T7m75/photo-46-2026-03-21-20-15-09.jpg" alt="Отзыв 46" loading="lazy"/><div class="review-img-num">46</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(46)"><img src="https://i.ibb.co/Dfd0MSTd/photo-47-2026-03-21-20-15-09.jpg" alt="Отзыв 47" loading="lazy"/><div class="review-img-num">47</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(47)"><img src="https://i.ibb.co/whj5sW1z/photo-48-2026-03-21-20-15-09.jpg" alt="Отзыв 48" loading="lazy"/><div class="review-img-num">48</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(48)"><img src="https://i.ibb.co/7JxLRHDT/photo-49-2026-03-21-20-15-09.jpg" alt="Отзыв 49" loading="lazy"/><div class="review-img-num">49</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(49)"><img src="https://i.ibb.co/p6Xxj51P/photo-50-2026-03-21-20-15-09.jpg" alt="Отзыв 50" loading="lazy"/><div class="review-img-num">50</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(50)"><img src="https://i.ibb.co/6JByG0BZ/photo-51-2026-03-21-20-15-09.jpg" alt="Отзыв 51" loading="lazy"/><div class="review-img-num">51</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(51)"><img src="https://i.ibb.co/v4F3jG0Z/photo-52-2026-03-21-20-15-09.jpg" alt="Отзыв 52" loading="lazy"/><div class="review-img-num">52</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(52)"><img src="https://i.ibb.co/7x2kzCPR/photo-53-2026-03-21-20-15-09.jpg" alt="Отзыв 53" loading="lazy"/><div class="review-img-num">53</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(53)"><img src="https://i.ibb.co/VpYGdhCD/photo-54-2026-03-21-20-15-09.jpg" alt="Отзыв 54" loading="lazy"/><div class="review-img-num">54</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(54)"><img src="https://i.ibb.co/JjPh8GWW/photo-55-2026-03-21-20-15-09.jpg" alt="Отзыв 55" loading="lazy"/><div class="review-img-num">55</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(55)"><img src="https://i.ibb.co/6RNVjk9X/photo-56-2026-03-21-20-15-09.jpg" alt="Отзыв 56" loading="lazy"/><div class="review-img-num">56</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(56)"><img src="https://i.ibb.co/NngF8BH8/photo-57-2026-03-21-20-15-09.jpg" alt="Отзыв 57" loading="lazy"/><div class="review-img-num">57</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(57)"><img src="https://i.ibb.co/HTTH1y96/photo-58-2026-03-21-20-15-09.jpg" alt="Отзыв 58" loading="lazy"/><div class="review-img-num">58</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(58)"><img src="https://i.ibb.co/5NRvd8z/photo-59-2026-03-21-20-15-09.jpg" alt="Отзыв 59" loading="lazy"/><div class="review-img-num">59</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(59)"><img src="https://i.ibb.co/k6yn949f/photo-60-2026-03-21-20-15-09.jpg" alt="Отзыв 60" loading="lazy"/><div class="review-img-num">60</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(60)"><img src="https://i.ibb.co/j9B2bRnb/photo-61-2026-03-21-20-15-09.jpg" alt="Отзыв 61" loading="lazy"/><div class="review-img-num">61</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(61)"><img src="https://i.ibb.co/TD6Zqxtb/photo-62-2026-03-21-20-15-09.jpg" alt="Отзыв 62" loading="lazy"/><div class="review-img-num">62</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(62)"><img src="https://i.ibb.co/DHjc6HSq/photo-63-2026-03-21-20-15-09.jpg" alt="Отзыв 63" loading="lazy"/><div class="review-img-num">63</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(63)"><img src="https://i.ibb.co/HfFwR50X/photo-64-2026-03-21-20-15-09.jpg" alt="Отзыв 64" loading="lazy"/><div class="review-img-num">64</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(64)"><img src="https://i.ibb.co/fGHSS2ZV/photo-65-2026-03-21-20-15-09.jpg" alt="Отзыв 65" loading="lazy"/><div class="review-img-num">65</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(65)"><img src="https://i.ibb.co/BV1L6x0B/photo-66-2026-03-21-20-15-09.jpg" alt="Отзыв 66" loading="lazy"/><div class="review-img-num">66</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(66)"><img src="https://i.ibb.co/Fk9QZBjM/photo-67-2026-03-21-20-15-09.jpg" alt="Отзыв 67" loading="lazy"/><div class="review-img-num">67</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(67)"><img src="https://i.ibb.co/8ncZDryH/photo-68-2026-03-21-20-15-09.jpg" alt="Отзыв 68" loading="lazy"/><div class="review-img-num">68</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(68)"><img src="https://i.ibb.co/3mRDckt5/photo-69-2026-03-21-20-15-09.jpg" alt="Отзыв 69" loading="lazy"/><div class="review-img-num">69</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(69)"><img src="https://i.ibb.co/jvpRjhzk/photo-70-2026-03-21-20-15-09.jpg" alt="Отзыв 70" loading="lazy"/><div class="review-img-num">70</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(70)"><img src="https://i.ibb.co/5X29DL8x/photo-71-2026-03-21-20-15-09.jpg" alt="Отзыв 71" loading="lazy"/><div class="review-img-num">71</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(71)"><img src="https://i.ibb.co/20vWTrrn/photo-72-2026-03-21-20-15-09.jpg" alt="Отзыв 72" loading="lazy"/><div class="review-img-num">72</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(72)"><img src="https://i.ibb.co/hRZfQ6Zf/photo-73-2026-03-21-20-15-09.jpg" alt="Отзыв 73" loading="lazy"/><div class="review-img-num">73</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(73)"><img src="https://i.ibb.co/zT5H2Vdr/photo-74-2026-03-21-20-15-09.jpg" alt="Отзыв 74" loading="lazy"/><div class="review-img-num">74</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(74)"><img src="https://i.ibb.co/qYT8YsNf/photo-75-2026-03-21-20-15-09.jpg" alt="Отзыв 75" loading="lazy"/><div class="review-img-num">75</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(75)"><img src="https://i.ibb.co/MkzwrpfM/photo-76-2026-03-21-20-15-09.jpg" alt="Отзыв 76" loading="lazy"/><div class="review-img-num">76</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(76)"><img src="https://i.ibb.co/zTVLQ6Rk/photo-77-2026-03-21-20-15-09.jpg" alt="Отзыв 77" loading="lazy"/><div class="review-img-num">77</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(77)"><img src="https://i.ibb.co/RkNV9qrH/photo-78-2026-03-21-20-15-09.jpg" alt="Отзыв 78" loading="lazy"/><div class="review-img-num">78</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(78)"><img src="https://i.ibb.co/Y4SYpw8Q/photo-79-2026-03-21-20-15-09.jpg" alt="Отзыв 79" loading="lazy"/><div class="review-img-num">79</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(79)"><img src="https://i.ibb.co/NgbrrnWD/photo-80-2026-03-21-20-15-09.jpg" alt="Отзыв 80" loading="lazy"/><div class="review-img-num">80</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(80)"><img src="https://i.ibb.co/0pzQj1NH/photo-81-2026-03-21-20-15-09.jpg" alt="Отзыв 81" loading="lazy"/><div class="review-img-num">81</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(81)"><img src="https://i.ibb.co/nNZJPh6b/photo-82-2026-03-21-20-15-09.jpg" alt="Отзыв 82" loading="lazy"/><div class="review-img-num">82</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(82)"><img src="https://i.ibb.co/xSYKKKr6/photo-83-2026-03-21-20-15-09.jpg" alt="Отзыв 83" loading="lazy"/><div class="review-img-num">83</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(83)"><img src="https://i.ibb.co/dwSZ3q04/photo-84-2026-03-21-20-15-09.jpg" alt="Отзыв 84" loading="lazy"/><div class="review-img-num">84</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(84)"><img src="https://i.ibb.co/Jwd8Thrn/photo-85-2026-03-21-20-15-09.jpg" alt="Отзыв 85" loading="lazy"/><div class="review-img-num">85</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(85)"><img src="https://i.ibb.co/Y4DXLSY4/photo-86-2026-03-21-20-15-09.jpg" alt="Отзыв 86" loading="lazy"/><div class="review-img-num">86</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(86)"><img src="https://i.ibb.co/VpYWGQs0/photo-87-2026-03-21-20-15-09.jpg" alt="Отзыв 87" loading="lazy"/><div class="review-img-num">87</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(87)"><img src="https://i.ibb.co/C52Hpz4t/photo-88-2026-03-21-20-15-09.jpg" alt="Отзыв 88" loading="lazy"/><div class="review-img-num">88</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(88)"><img src="https://i.ibb.co/nq1gfbGT/photo-89-2026-03-21-20-15-09.jpg" alt="Отзыв 89" loading="lazy"/><div class="review-img-num">89</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(89)"><img src="https://i.ibb.co/r2VSLt9q/photo-90-2026-03-21-20-15-09.jpg" alt="Отзыв 90" loading="lazy"/><div class="review-img-num">90</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(90)"><img src="https://i.ibb.co/kVPRP8xh/photo-91-2026-03-21-20-15-09.jpg" alt="Отзыв 91" loading="lazy"/><div class="review-img-num">91</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(91)"><img src="https://i.ibb.co/CsK9Cm09/photo-92-2026-03-21-20-15-09.jpg" alt="Отзыв 92" loading="lazy"/><div class="review-img-num">92</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(92)"><img src="https://i.ibb.co/35q8VQTC/photo-93-2026-03-21-20-15-09.jpg" alt="Отзыв 93" loading="lazy"/><div class="review-img-num">93</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(93)"><img src="https://i.ibb.co/P30HPrk/photo-94-2026-03-21-20-15-09.jpg" alt="Отзыв 94" loading="lazy"/><div class="review-img-num">94</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(94)"><img src="https://i.ibb.co/wN5m6wP3/photo-95-2026-03-21-20-15-09.jpg" alt="Отзыв 95" loading="lazy"/><div class="review-img-num">95</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(95)"><img src="https://i.ibb.co/208G4pgR/photo-96-2026-03-21-20-15-09.jpg" alt="Отзыв 96" loading="lazy"/><div class="review-img-num">96</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(96)"><img src="https://i.ibb.co/fVNjMkvp/photo-97-2026-03-21-20-15-09.jpg" alt="Отзыв 97" loading="lazy"/><div class="review-img-num">97</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(97)"><img src="https://i.ibb.co/VY8DC963/photo-98-2026-03-21-20-15-09.jpg" alt="Отзыв 98" loading="lazy"/><div class="review-img-num">98</div></div>
+<div class="review-img-wrap" onclick="openReviewLightbox(98)"><img src="https://i.ibb.co/qQRS0FT/photo-99-2026-03-21-20-15-09.jpg" alt="Отзыв 99" loading="lazy"/><div class="review-img-num">99</div></div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="https://t.me/wear00xx" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;background:#0088cc;color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:1rem;">
+      <i class="fab fa-telegram"></i> Все отзывы в Telegram
+    </a>
+  </div>
+</div>
+
+<!-- Review Lightbox -->
+<div id="reviewLightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;flex-direction:column;" onclick="if(event.target===this)closeReviewLightbox()">
+  <button onclick="closeReviewLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;">&#10005;</button>
+  <button onclick="reviewNav(-1)" style="position:absolute;left:1rem;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:2rem;cursor:pointer;border-radius:50%;width:50px;height:50px;">&#8249;</button>
+  <img id="reviewLbImg" src="" style="max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;"/>
+  <div id="reviewLbCounter" style="color:rgba(255,255,255,0.6);margin-top:1rem;font-size:0.9rem;letter-spacing:2px;"></div>
+  <button onclick="reviewNav(1)" style="position:absolute;right:1rem;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:2rem;cursor:pointer;border-radius:50%;width:50px;height:50px;">&#8250;</button>
+</div>
+</section>
+
 <footer>
 <div class="container text-center">
 <div class="footer-logo">00x Wear</div>
@@ -1304,7 +1423,7 @@ function slideCard(btn, dir) {
     <a href="https://www.instagram.com/00xwear?igsh=MXc1cms3cm5sajJkbg%3D%3D&utm_source=qr" target="_blank" class="contact-btn insta">&#128248; Instagram</a>
     <a href="http://t.me/manager00xwear" target="_blank" class="contact-btn tg">&#128172; Telegram</a>
     <a href="https://vk.ru/00x.wear" target="_blank" class="contact-btn vk">&#128101; VK</a>
-    <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="contact-btn avito">&#127978; Avito</a>
+    <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565/all/odezhda_obuv_aksessuary?sellerId=f03860def3d5d67963c6696fe8a83e21" target="_blank" class="contact-btn avito">&#127978; Avito</a>
   </div>
 </div>
 
@@ -1340,6 +1459,55 @@ document.addEventListener('DOMContentLoaded',function(){
       new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1}).observe(el);
     });
 });
+</script>
+
+
+<script>
+var _reviewImgs = ['https://i.ibb.co/VY5gSL5x/photo-1-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/KzRfzw77/photo-2-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/WNc9kJdD/photo-3-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/C5KZP61C/photo-4-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/spjMq631/photo-5-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Ps81rdtn/photo-6-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/LX4tDPmw/photo-7-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/DDtpcLTd/photo-8-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/4nksCNx2/photo-9-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/gM5L0tc9/photo-10-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Kc6v6bbB/photo-11-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5WRVMFXv/photo-12-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/chc0pmNM/photo-13-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/ycqbXc1n/photo-14-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/ccGrGQv4/photo-15-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Qjf8Tppv/photo-16-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/tpWp7tVL/photo-17-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/sdbSFVJm/photo-18-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/fjsg6y4/photo-19-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/rghkfmz/photo-20-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/v6RLzXgF/photo-21-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/PZg6Sw4T/photo-22-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/8LdDp7p1/photo-23-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Xr5yfT50/photo-24-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/GQbGdb5z/photo-25-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/3mmQKs2L/photo-26-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/KcQ2YWqp/photo-27-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/cSTxkQMC/photo-28-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/zhcH0Psh/photo-29-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/sdW9kjNq/photo-30-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5WJmmSXM/photo-31-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/nMJQKHLB/photo-32-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/1fVqnm5n/photo-33-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/k2x37zRG/photo-34-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Wvr7xsjZ/photo-35-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/8nsnzN8h/photo-36-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/hJkhdnTV/photo-37-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/bjgzJmbM/photo-38-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/gbxkbLsn/photo-39-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qMT7dDTP/photo-40-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qSR8vqP/photo-41-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/2bJ7ysp/photo-42-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/TxkVzLdY/photo-43-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/gM77Cgtn/photo-44-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/d03tRFjX/photo-45-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5g5T7m75/photo-46-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Dfd0MSTd/photo-47-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/whj5sW1z/photo-48-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/7JxLRHDT/photo-49-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/p6Xxj51P/photo-50-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/6JByG0BZ/photo-51-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/v4F3jG0Z/photo-52-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/7x2kzCPR/photo-53-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/VpYGdhCD/photo-54-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/JjPh8GWW/photo-55-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/6RNVjk9X/photo-56-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/NngF8BH8/photo-57-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/HTTH1y96/photo-58-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5NRvd8z/photo-59-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/k6yn949f/photo-60-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/j9B2bRnb/photo-61-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/TD6Zqxtb/photo-62-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/DHjc6HSq/photo-63-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/HfFwR50X/photo-64-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/fGHSS2ZV/photo-65-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/BV1L6x0B/photo-66-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Fk9QZBjM/photo-67-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/8ncZDryH/photo-68-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/3mRDckt5/photo-69-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/jvpRjhzk/photo-70-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5X29DL8x/photo-71-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/20vWTrrn/photo-72-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/hRZfQ6Zf/photo-73-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/zT5H2Vdr/photo-74-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qYT8YsNf/photo-75-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/MkzwrpfM/photo-76-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/zTVLQ6Rk/photo-77-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/RkNV9qrH/photo-78-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Y4SYpw8Q/photo-79-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/NgbrrnWD/photo-80-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/0pzQj1NH/photo-81-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/nNZJPh6b/photo-82-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/xSYKKKr6/photo-83-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/dwSZ3q04/photo-84-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Jwd8Thrn/photo-85-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Y4DXLSY4/photo-86-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/VpYWGQs0/photo-87-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/C52Hpz4t/photo-88-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/nq1gfbGT/photo-89-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/r2VSLt9q/photo-90-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/kVPRP8xh/photo-91-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/CsK9Cm09/photo-92-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/35q8VQTC/photo-93-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/P30HPrk/photo-94-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/wN5m6wP3/photo-95-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/208G4pgR/photo-96-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/fVNjMkvp/photo-97-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/VY8DC963/photo-98-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qQRS0FT/photo-99-2026-03-21-20-15-09.jpg'];
+var _reviewIdx = 0;
+
+function openReviewLightbox(idx){
+  _reviewIdx = idx;
+  var lb = document.getElementById('reviewLightbox');
+  document.getElementById('reviewLbImg').src = _reviewImgs[idx];
+  document.getElementById('reviewLbCounter').textContent = (idx+1) + ' / ' + _reviewImgs.length;
+  lb.style.display = 'flex';
+}
+function closeReviewLightbox(){
+  document.getElementById('reviewLightbox').style.display = 'none';
+}
+function reviewNav(dir){
+  _reviewIdx = (_reviewIdx + dir + _reviewImgs.length) % _reviewImgs.length;
+  document.getElementById('reviewLbImg').src = _reviewImgs[_reviewIdx];
+  document.getElementById('reviewLbCounter').textContent = (_reviewIdx+1) + ' / ' + _reviewImgs.length;
+}
+document.addEventListener('keydown', function(e){
+  var lb = document.getElementById('reviewLightbox');
+  if(lb.style.display === 'flex'){
+    if(e.key === 'ArrowRight') reviewNav(1);
+    if(e.key === 'ArrowLeft') reviewNav(-1);
+    if(e.key === 'Escape') closeReviewLightbox();
+  }
+});
+function searchReviews(q){
+  var items = document.querySelectorAll('.review-img-wrap');
+  q = q.toLowerCase().trim();
+  items.forEach(function(item, i){
+    var num = (i+1).toString();
+    item.style.display = (!q || num.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+
+
+<script>
+function searchCatalog(q){
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.product-card').forEach(function(card){
+    var text = card.innerText.toLowerCase();
+    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+}
 </script>
 
 </body>

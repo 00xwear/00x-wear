@@ -330,7 +330,7 @@ body::before{content:'';position:fixed;inset:0;
 <a href="https://vk.ru/00x.wear" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
 <a href="https://www.tiktok.com/@00x.wear" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
 <a href="https://www.instagram.com/00xwear" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-<a href="https://www.avito.ru" target="_blank" class="social-icon"><i class="fas fa-store"></i></a>
+<a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="social-icon"><i class="fas fa-store"></i></a>
 </div>
 </div>
 </div>
@@ -346,7 +346,7 @@ body::before{content:'';position:fixed;inset:0;
 <a href="https://vk.ru/00x.wear" target="_blank" class="hero-btn"><i class="fab fa-vk"></i> VK</a>
 <a href="https://www.tiktok.com/@00x.wear" target="_blank" class="hero-btn"><i class="fab fa-tiktok"></i> TikTok</a>
 <a href="https://www.instagram.com/00xwear" target="_blank" class="hero-btn"><i class="fab fa-instagram"></i> Instagram</a>
-<a href="https://www.avito.ru" target="_blank" class="hero-btn"><i class="fas fa-store"></i> Avito</a>
+<a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="hero-btn"><i class="fas fa-store"></i> Avito</a>
 </div>
 
 <!-- О НАС НА ГЛАВНОЙ -->
@@ -2520,7 +2520,6 @@ function deleteProduct(id) {
   localStorage.setItem('adminProducts', JSON.stringify(products));
   updateAdminList();
 }
-// Загрузка при старте
 if (localStorage.getItem('adminProducts')) {
   products = JSON.stringify(localStorage.getItem('adminProducts'));
   updateAdminList();

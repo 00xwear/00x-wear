@@ -12,15 +12,8 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow-x:hidden;}
-
 /* WATERMARK BG */
-
-
-
-
-
 @keyframes bgFloat{0%{transform:translateY(0)}100%{transform:translateY(-80px)}}
-
 /* HEADER */
 .header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.92);backdrop-filter:blur(24px);z-index:1000;border-bottom:1px solid rgba(10,116,218,0.1);transition:0.4s;}
 .header.scrolled{background:rgba(255,255,255,0.99);box-shadow:0 4px 32px rgba(10,116,218,0.1);}
@@ -31,7 +24,6 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow-x:hidden
 .nav-link:hover{color:var(--blue)!important;}
 .social-icon{color:#888;font-size:1.1rem;margin-left:12px;transition:0.3s;}
 .social-icon:hover{color:var(--blue);transform:translateY(-3px);}
-
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 60px;}
 .hero-title{font-size:clamp(4rem,12vw,8rem);font-weight:900;background:linear-gradient(135deg,#111 0%,var(--blue) 50%,var(--blue2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;animation:heroIn 1.2s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0;}
@@ -40,14 +32,12 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow-x:hidden
 .hero-btn{display:flex;align-items:center;gap:10px;padding:0.9rem 2rem;border:2px solid rgba(10,116,218,0.25);border-radius:50px;color:#444;text-decoration:none;font-weight:700;font-size:0.95rem;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);transition:all 0.4s;cursor:default;}
 .hero-btn:hover{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;border-color:transparent;transform:translateY(-6px);box-shadow:0 20px 60px rgba(10,116,218,0.35);}
 @keyframes heroIn{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
-
 /* SECTIONS */
 section{padding:100px 0;scroll-margin-top:80px;}
 .section-label{text-align:center;font-size:0.8rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:0.8rem;}
 .section-title{text-align:center;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:#111;margin-bottom:0.5rem;}
 .section-title span{background:linear-gradient(135deg,var(--blue),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .section-desc{text-align:center;color:#aaa;font-size:0.95rem;max-width:500px;margin:0 auto 3.5rem;}
-
 /* ДЖИНСЫ — FEATURED */
 #jeans{background:linear-gradient(135deg,#f0f8ff,#e8f4ff);}
 .jeans-wrap{max-width:1100px;margin:0 auto;background:#fff;border-radius:32px;overflow:hidden;box-shadow:0 32px 100px rgba(10,116,218,0.15);display:grid;grid-template-columns:1fr 1fr;}
@@ -72,7 +62,6 @@ section{padding:100px 0;scroll-margin-top:80px;}
 .btn-primary-custom:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(10,116,218,0.4);color:white;}
 .btn-outline-custom{border:2.5px solid var(--blue);border-radius:16px;padding:1.1rem 2rem;font-weight:700;color:var(--blue);background:transparent;flex:1;transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .btn-outline-custom:hover{background:var(--blue);color:white;transform:translateY(-4px);}
-
 /* КАТАЛОГ */
 #catalog{background:#fff;}
 .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;}
@@ -86,7 +75,6 @@ section{padding:100px 0;scroll-margin-top:80px;}
 .product-cat{font-size:0.75rem;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:0.5rem;}
 .product-name{font-size:1.4rem;font-weight:900;color:#111;margin-bottom:0.8rem;}
 .product-price{font-size:1.7rem;font-weight:900;color:var(--blue);}
-
 /* ОТЗЫВЫ */
 #reviews{background:linear-gradient(135deg,#f8fbff,#eef6ff);}
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem;}
@@ -98,7 +86,6 @@ section{padding:100px 0;scroll-margin-top:80px;}
 .review-date{color:#aaa;font-size:0.82rem;margin-top:2px;}
 .stars{color:#ffc107;margin-bottom:0.8rem;font-size:0.9rem;}
 .review-text{color:#555;line-height:1.7;font-size:0.95rem;}
-
 /* СОЦСЕТИ */
 #socials{background:#fff;}
 .social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;}
@@ -107,7 +94,6 @@ section{padding:100px 0;scroll-margin-top:80px;}
 .social-card:hover{transform:translateY(-12px);border-color:var(--blue);box-shadow:0 24px 72px rgba(10,116,218,0.2);}
 .social-card:hover i{transform:scale(1.2);}
 .social-handle{font-weight:700;font-size:0.95rem;}
-
 /* ФОРМА */
 #order{background:linear-gradient(135deg,#f0f8ff,#e8f4ff);}
 .form-wrap{background:#fff;border-radius:32px;padding:3.5rem;box-shadow:0 32px 100px rgba(10,116,218,0.12);max-width:700px;margin:0 auto;}
@@ -115,23 +101,18 @@ section{padding:100px 0;scroll-margin-top:80px;}
 .form-control:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(10,116,218,0.1);background:#fff;}
 .btn-submit{background:linear-gradient(135deg,var(--blue),var(--blue2));border:none;border-radius:16px;padding:1.2rem 3rem;font-weight:800;font-size:1.05rem;color:white;width:100%;transition:all 0.3s;box-shadow:0 12px 40px rgba(10,116,218,0.3);}
 .btn-submit:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(10,116,218,0.4);}
-
 /* FOOTER */
 footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,218,0.1);}
 .footer-logo{font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem;}
 .footer-socials{display:flex;justify-content:center;gap:24px;margin-bottom:1.5rem;}
 .footer-socials a{color:#aaa;font-size:1.5rem;transition:0.3s;}
 .footer-socials a:hover{color:var(--blue);transform:translateY(-4px);}
-
 /* SCROLL TOP */
 .scroll-top{position:fixed;bottom:30px;right:30px;width:52px;height:52px;background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;cursor:default;opacity:0;transform:translateY(20px);transition:all 0.3s;z-index:999;border:none;box-shadow:0 12px 36px rgba(10,116,218,0.4);}
 .scroll-top.show{opacity:1;transform:translateY(0);}
-
 /* REVEAL ANIMATION */
 .reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-
-
 /* LIGHTBOX */
 .lightbox-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:none;align-items:center;justify-content:center;}
 .lightbox-overlay.active{display:flex;}
@@ -144,9 +125,6 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 .lightbox-arrow.next{right:20px;}
 .lightbox-counter{position:absolute;bottom:20px;color:rgba(255,255,255,0.6);font-size:0.9rem;font-weight:600;letter-spacing:2px;}
 .product-img{cursor:zoom-in;}
-
-
-
 /* ORDER MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
 .modal-overlay.open{display:flex;}
@@ -165,14 +143,12 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 .modal-success .check{font-size:3rem;margin-bottom:0.5rem;}
 .modal-success p{font-weight:700;font-size:1.1rem;color:#222;}
 .modal-success span{color:#888;font-size:0.9rem;}
-
 /* FILTERS */
 .filter-wrap{display:flex;flex-wrap:wrap;gap:0.8rem;justify-content:center;margin-bottom:3rem;}
 .filter-btn{padding:0.6rem 1.8rem;border-radius:50px;border:2px solid rgba(10,116,218,0.2);background:#fff;color:#555;font-weight:700;font-size:0.9rem;cursor:default;transition:all 0.3s;}
 .filter-btn:hover,.filter-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(10,116,218,0.3);}
 .product-card{transition:all 0.4s;}
 .product-card.hidden{display:none;}
-
 /* MOBILE */
 @media(max-width:768px){
 .jeans-wrap{grid-template-columns:1fr;}
@@ -183,12 +159,10 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 .specs{grid-template-columns:repeat(3,1fr);}
 .jeans-btns{flex-direction:column;}
 }
-
 body::before{content:'';position:fixed;inset:0;
   background-image:url('https://i.ibb.co/G4kMmgXg/photo-2025-05-06-07-50-15.jpg');
   background-size:280px;background-repeat:repeat;opacity:0.06;
   pointer-events:none;z-index:0;}
-
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
 .modal-overlay.open{display:flex;}
 .modal-box{background:#fff;border-radius:24px;padding:2.5rem 2rem;max-width:400px;width:90%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,0.3);animation:modalIn 0.3s ease;text-align:center;}
@@ -209,28 +183,14 @@ body::before{content:'';position:fixed;inset:0;
 .filter-btn{padding:0.6rem 1.8rem;border-radius:50px;border:2px solid rgba(10,116,218,0.2);background:#fff;color:#555;font-weight:700;font-size:0.9rem;cursor:default;transition:all 0.3s;}
 .filter-btn:hover,.filter-btn.active{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(10,116,218,0.3);}
 .product-card.hidden{display:none;}
-
 .review-img-wrap{position:relative;cursor:default;border-radius:12px;overflow:hidden;aspect-ratio:1;background:#f0f0f0;}
 .review-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
 .review-img-wrap:hover img{transform:scale(1.05);}
 .review-img-num{position:absolute;bottom:4px;right:6px;background:rgba(0,0,0,0.5);color:#fff;font-size:0.7rem;font-weight:700;padding:1px 5px;border-radius:6px;}
-
-
 .btn-buy{width:100%;margin-top:1rem;padding:0.85rem 1rem;border-radius:14px;border:none;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-size:0.95rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.25);letter-spacing:0.3px;}
 .btn-buy:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(10,116,218,0.4);opacity:0.9;}
-
-
 .admin-panel.open{display:flex;}
-
-
-
-
-
 .admin-btn:hover{opacity:0.9;}
-
-
-
-
 {position:relative;}
 .btn-buy-contacts:hover {position:relative;}
 .btn-buy-contacts .btn-buy:hover + :hover .contacts-menu{display:block !important;}
@@ -240,13 +200,9 @@ body::before{content:'';position:fixed;inset:0;
 .contacts-menu::before{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:12px solid #fff;}
 .product-card{cursor:default;} /* Карточка кликабельна, но НЕ hover меню */
 .product-card:hover .contacts-menu{display:none !important;} /* Блокируем меню на карточке */
-
-
 .product-card * { pointer-events: auto; }
 .product-card:hover .simple-menu { display: none !important; }
 #simple-menu { pointer-events: auto !important; z-index: 10001 !important; position: fixed !important; }
-
-
 .product-card {
   pointer-events: none;
 }
@@ -258,15 +214,12 @@ body::before{content:'';position:fixed;inset:0;
   pointer-events: auto !important;
   z-index: 10001 !important;
 }
-
-
 /* АНИМАЦИЯ КНОПКИ КУПИТЬ */
 .btn-buy-anim {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
-
 .btn-buy-anim::before {
   content: '';
   position: absolute;
@@ -277,39 +230,53 @@ body::before{content:'';position:fixed;inset:0;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   transition: left 0.6s;
 }
-
 .btn-buy-anim:hover {
   transform: translateY(-4px) scale(1.02) !important;
   box-shadow: 0 16px 48px rgba(10,116,218,0.5) !important;
 }
-
 .btn-buy-anim:hover::before {
   left: 100%;
 }
-
 .btn-buy-anim:active {
   transform: translateY(-1px) scale(0.98) !important;
   box-shadow: 0 6px 20px rgba(10,116,218,0.4) !important;
 }
-
 /* Пульс при клике */
 @keyframes pulse-buy {
   0% { box-shadow: 0 0 0 0 rgba(10,116,218,0.7); }
   70% { box-shadow: 0 0 0 20px rgba(10,116,218,0); }
   100% { box-shadow: 0 0 0 0 rgba(10,116,218,0); }
 }
-
 .btn-buy-anim.pulse {
   animation: pulse-buy 1.2s infinite;
 }
 
+.filter-toolbar{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;justify-content:space-between;}
+.filter-toolbar-left{display:flex;align-items:center;gap:0.7rem;}
+.sort-select{padding:.6rem 1.2rem;border-radius:12px;border:2px solid rgba(10,116,218,.2);background:#fff;font-weight:700;font-size:.9rem;cursor:pointer;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.no-results{text-align:center;padding:4rem;color:#aaa;font-size:1.1rem;display:none;}
+.product-card.hidden{display:none;}
 </style>
 </head>
 <body>
-
-
 </div>
-
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg header py-3">
 <div class="container">
@@ -319,23 +286,19 @@ body::before{content:'';position:fixed;inset:0;
 </button>
 <div class="collapse navbar-collapse justify-content-end" id="nav">
 <ul class="navbar-nav gap-3 me-4">
-
-
 <li><a class="nav-link" href="#catalog">Каталог</a></li><li><a class="nav-link" href="#reviews">Отзывы</a></li>
 <li><a class="nav-link" href="#socials">Соцсети</a></li>
-
 </ul>
 <div>
 <a href="https://t.me/wear00x" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
 <a href="https://vk.ru/00x.wear" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
 <a href="https://www.tiktok.com/@00x.wear" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
 <a href="https://www.instagram.com/00xwear" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-<a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="social-icon"><i class="fas fa-store"></i></a>
+<a href="https://www.avito.ru" target="_blank" class="social-icon"><i class="fas fa-store"></i></a>
 </div>
 </div>
 </div>
 </nav>
-
 <!-- HERO -->
 <section id="hero" class="hero">
 <div class="container">
@@ -346,14 +309,12 @@ body::before{content:'';position:fixed;inset:0;
 <a href="https://vk.ru/00x.wear" target="_blank" class="hero-btn"><i class="fab fa-vk"></i> VK</a>
 <a href="https://www.tiktok.com/@00x.wear" target="_blank" class="hero-btn"><i class="fab fa-tiktok"></i> TikTok</a>
 <a href="https://www.instagram.com/00xwear" target="_blank" class="hero-btn"><i class="fab fa-instagram"></i> Instagram</a>
-<a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="hero-btn"><i class="fas fa-store"></i> Avito</a>
+<a href="https://www.avito.ru" target="_blank" class="hero-btn"><i class="fas fa-store"></i> Avito</a>
 </div>
-
 <!-- О НАС НА ГЛАВНОЙ -->
 <div class="reveal" style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:24px;padding:2.5rem 2rem;max-width:860px;margin:3rem auto 0;box-shadow:0 8px 40px rgba(0,0,0,0.08);">
   <h2 style="font-weight:900;font-size:1.5rem;color:#111;margin-bottom:1.5rem;text-align:center;">О нас</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;text-align:left;">
-
     <div>
       <div style="font-size:1.5rem;margin-bottom:0.5rem;">👋</div>
       <h3 style="font-weight:800;font-size:1rem;color:#111;margin-bottom:0.5rem;">Кто мы?</h3>
@@ -361,7 +322,6 @@ body::before{content:'';position:fixed;inset:0;
         <strong>00x.wear</strong> — продаём новые и б/у вещи. Возврат — только если не указали недостаток. Разные размеры в наличии.
       </p>
     </div>
-
     <div>
       <div style="font-size:1.5rem;margin-bottom:0.5rem;">✅</div>
       <h3 style="font-weight:800;font-size:1rem;color:#111;margin-bottom:0.5rem;">Почему нам доверяют?</h3>
@@ -375,7 +335,6 @@ body::before{content:'';position:fixed;inset:0;
         <li>🔻 <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" style="color:var(--blue);font-weight:600;">200+ продаж на Авито</a></li>
       </ul>
     </div>
-
     <div>
       <div style="font-size:1.5rem;margin-bottom:0.5rem;">✈️</div>
       <h3 style="font-weight:800;font-size:1rem;color:#111;margin-bottom:0.5rem;">Заказ и доставка</h3>
@@ -392,25 +351,16 @@ body::before{content:'';position:fixed;inset:0;
       </div>
       <p style="color:#888;font-size:0.8rem;margin:0;">📍 Пермь — отправляем по всей РФ и за границу</p>
     </div>
-
   </div>
 </div>
-
 </div>
 </section>
-
-
-
-
-
-
 <!-- КАТАЛОГ -->
 <section id="catalog">
 <div class="container">
 <div class="section-label reveal">Коллекция</div>
 <h2 class="section-title reveal">Ката<span>лог</span></h2>
 <p class="section-desc reveal">Все позиции в наличии — отправка за границу</p>
-
 <div class="modal-overlay" id="orderModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -428,28 +378,38 @@ body::before{content:'';position:fixed;inset:0;
     </div>
   </div>
 </div>
-
-
-<div style="max-width:500px;margin:0 auto 1.5rem;position:relative;"> 
+<div style="max-width:500px;margin:0 auto 1.5rem;position:relative;">
   <input id="catalogSearch" type="text" placeholder="🔍 Поиск по каталогу..."
     oninput="searchCatalog(this.value)"
     style="width:100%;padding:0.9rem 1.4rem;border-radius:50px;border:2px solid #e0e0e0;font-size:1rem;outline:none;box-sizing:border-box;transition:border 0.2s;"
     onfocus="this.style.borderColor='#0a74da'" onblur="this.style.borderColor='#e0e0e0'"/>
 </div>
 
-<div class="filter-wrap">
-<button class="filter-btn active" onclick="filterCat('all',this)">All</button>
-<button class="filter-btn" onclick="filterCat('jeans',this)">Jeans</button>
-<button class="filter-btn" onclick="filterCat('hoodies',this)">Hoodies</button>
-<button class="filter-btn" onclick="filterCat('zips',this)">Zip Hoodies</button>
-<button class="filter-btn" onclick="filterCat('tees',this)">T-Shirts</button>
-<button class="filter-btn" onclick="filterCat('other',this)">Other</button>
+
+<div class="filter-wrap mb-3">
+  <button class="filter-btn active" onclick="filterCat('all',this)">All</button>
+  <button class="filter-btn" onclick="filterCat('jeans',this)">Jeans</button>
+  <button class="filter-btn" onclick="filterCat('hoodies',this)">Hoodies</button>
+  <button class="filter-btn" onclick="filterCat('zips',this)">Zip Hoodies</button>
+  <button class="filter-btn" onclick="filterCat('tees',this)">T-Shirts</button>
+  <button class="filter-btn" onclick="filterCat('shorts',this)">Shorts</button>
+  <button class="filter-btn" onclick="filterCat('shoes',this)">Shoes</button>
+  <button class="filter-btn" onclick="filterCat('other',this)">Other</button>
+</div>
+<div class="filter-toolbar">
+  <div class="filter-toolbar-left">
+    <select class="sort-select" id="sortBy" onchange="applyFilters()">
+      <option value="default">Сортировка</option>
+      <option value="price-asc">Цена ↑ (дешевле)</option>
+      <option value="price-desc">Цена ↓ (дороже)</option>
+      <option value="size-asc">Размер ↑ (меньше)</option>
+      <option value="size-desc">Размер ↓ (больше)</option>
+    </select>
+  </div>
+  <span style="color:#888;font-size:.9rem;font-weight:600;">Найдено: <b id="itemCount">0</b></span>
 </div>
 
-
-
-<div class="catalog-grid" id="catalogGrid">
-
+    <div class="catalog-grid" id="catalogGrid">
 <!-- Five Elementz -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -468,7 +428,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">9 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -490,7 +449,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Coogi -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -509,7 +467,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">7 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -531,7 +488,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Rocawear -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -550,7 +506,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">8 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -572,8 +527,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
-
 <!-- Southpole Hoodie -->
 <div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
@@ -588,7 +541,6 @@ body::before{content:'';position:fixed;inset:0;
 <span style="color:#2e7d32;">Прекрасное состояние ✅</span></div>
 <div class="product-price">6 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -610,7 +562,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Red Ape Jeans -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -629,7 +580,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">9 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -651,7 +601,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Southpole Red Tab Jeans -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -668,7 +617,6 @@ body::before{content:'';position:fixed;inset:0;
 ПП&nbsp;58 &nbsp;·&nbsp; Длина&nbsp;111 &nbsp;·&nbsp; Ляха&nbsp;48 &nbsp;·&nbsp; Выход&nbsp;29</div>
 <div class="product-price">14 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -690,7 +638,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Coogi Jeans W38 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -708,7 +655,6 @@ body::before{content:'';position:fixed;inset:0;
 <span style="color:#2e7d32;">Состояние 10/10 ✅</span></div>
 <div class="product-price">8 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -730,7 +676,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Southpole Crossbone Bomber -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -747,7 +692,6 @@ body::before{content:'';position:fixed;inset:0;
 Длина&nbsp;68 &nbsp;·&nbsp; Ширина&nbsp;59</div>
 <div class="product-price">7 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -769,7 +713,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- JNCO Hoodie -->
 <div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
@@ -784,7 +727,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">11 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -806,7 +748,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Akademiks Zip-Hoodie -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -821,7 +762,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -843,45 +783,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
-<!-- Brooklyn Express Hoodie -->
-<div class="product-card reveal" data-category="zips">
-<div class="product-img" style="position:relative;">
-<img src="https://i.ibb.co/W4f9n1gN/photo-20-2026-03-20-10-12-33.jpg" alt="Brooklyn Express Hoodie 2XL" style="width:100%;height:100%;object-fit:cover;display:block;">
-<span class="product-badge">2XL</span>
-</div>
-<div class="product-body">
-<div class="product-cat">Brooklyn Express</div>
-<div class="product-name">Brooklyn Express Hoodie</div>
-<div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
-Длина&nbsp;83 &nbsp;·&nbsp; Ширина&nbsp;65<br>
-<span style="color:#2e7d32;">Без дефектов ✅</span>
-</div>
-<div class="product-price">8 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
-<div class="buy-block" style="position:relative;margin-top:1rem;">
-<button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
-🛒 КУПИТЬ
-</button>
-<div class="perfect-menu" style="position:absolute;bottom:115%;left:50%;transform:translateX(-50%);background:#fff;border-radius:20px;padding:12px;box-shadow:0 24px 64px rgba(0,0,0,0.3);min-width:260px;display:none;z-index:9999;border:1px solid #e8f0fe;">
-<a href="https://www.instagram.com/00xwear?igsh=MXc1cms3cm5sajJkbg%3D%3D&utm_source=qr" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;">
-<i class="fab fa-instagram me-3" style="color:#e4405f;font-size:1.2rem;vertical-align:middle;"></i>📸 Instagram
-</a>
-<a href="http://t.me/manager00xwear" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;">
-<i class="fab fa-telegram me-3" style="color:#0088cc;font-size:1.2rem;vertical-align:middle;"></i>💬 Telegram
-</a>
-<a href="https://vk.ru/00x.wear" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;">
-<i class="fab fa-vk me-3" style="color:#4680c2;font-size:1.2rem;vertical-align:middle;"></i>👥 VK
-</a>
-<a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;">
-<i class="fas fa-store me-3" style="color:#ff9900;font-size:1.2rem;vertical-align:middle;"></i>🏪 Avito
-</a>
-</div>
-</div>
-</div>
-</div>
-
 <!-- LRG Tee -->
 <div class="product-card reveal" data-category="tees">
 <div class="product-img" style="position:relative;">
@@ -894,9 +795,8 @@ body::before{content:'';position:fixed;inset:0;
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;75 &nbsp;·&nbsp; Ширина&nbsp;60
 </div>
-<div class="product-price">2 490 ₽</div>
+<div class="product-price">Авито</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -918,7 +818,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- COOGI Sweatshirt -->
 <div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
@@ -934,7 +833,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">13 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -956,7 +854,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Dollar Zip-Hoodie -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -972,7 +869,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">8 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -994,7 +890,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Phat Farm Jeans -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1013,7 +908,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">6 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1035,7 +929,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Southpole Brown Tab Jeans W44 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1054,7 +947,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">8 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1076,7 +968,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Ecko Unltd Jeans -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1093,9 +984,8 @@ body::before{content:'';position:fixed;inset:0;
 ПП&nbsp;49 &nbsp;·&nbsp; Длина&nbsp;117 &nbsp;·&nbsp; Ляха&nbsp;40 &nbsp;·&nbsp; Выход&nbsp;27<br>
 <span style="color:#2e7d32;">Без дефектов · Плотный материал ✅</span>
 </div>
-<div class="product-price">9 490 ₽</div>
+<div class="product-price">Авито</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1117,7 +1007,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Rocawear Jeans W40 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1136,7 +1025,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">6 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1158,7 +1046,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- LRG Jeans W40 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1177,7 +1064,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">9 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1199,7 +1085,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- LRG Jeans W34 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1218,7 +1103,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">7 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1240,7 +1124,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Spitfire BackPack -->
 <div class="product-card reveal" data-category="other">
 <div class="product-img" style="position:relative;">
@@ -1255,7 +1138,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1277,7 +1159,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Snoop Dogg Hoodie -->
 <div class="product-card reveal" data-category="hoodies">
 <div class="product-img" style="position:relative;">
@@ -1293,7 +1174,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">5 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1315,7 +1195,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Enyce Zip -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1331,7 +1210,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">5 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1353,7 +1231,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Hoodboyz Zip Up -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1368,7 +1245,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1390,7 +1266,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Hoodboyz Zip Up XL -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1405,7 +1280,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1427,7 +1301,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Enyce Zip Up XXL -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1442,7 +1315,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">5 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1464,7 +1336,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- LRG Velour Zip -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1479,7 +1350,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1501,7 +1371,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Pelle Pelle Zip -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1517,7 +1386,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1539,7 +1407,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Brooklyn Express Zip -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1557,7 +1424,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1579,7 +1445,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Brooklyn Express Zip Up L 73 -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1594,7 +1459,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1616,7 +1480,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Sean John Zip -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1634,7 +1497,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1656,7 +1518,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Karl Kani Gold Zip Up -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1672,7 +1533,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">6 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1694,7 +1554,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Mass Denim Zip Up -->
 <div class="product-card reveal" data-category="zips">
 <div class="product-img" style="position:relative;">
@@ -1722,7 +1581,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">4 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1744,7 +1602,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Avirex Baggy Jeans W46 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1763,7 +1620,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">7 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1785,7 +1641,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Enyce Jeans W38-40 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1803,7 +1658,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">6 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1825,7 +1679,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Rocawear Jeans W42-44 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1843,7 +1696,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">6 490 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1865,7 +1717,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- Rocawear Jeans W44 new -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1884,7 +1735,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">7 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1906,7 +1756,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- 5ive Jungle Jeans W48 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1924,7 +1773,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">7 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1946,7 +1794,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </div>
-
 <!-- LRG Jeans W38 -->
 <div class="product-card reveal" data-category="jeans">
 <div class="product-img" style="position:relative;">
@@ -1965,7 +1812,6 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 <div class="product-price">6 990 ₽</div>
 <div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
-
 <div class="buy-block" style="position:relative;margin-top:1rem;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
@@ -1990,10 +1836,7 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </section>
-
 <!-- ОТЗЫВЫ -->
-
-
 <!-- СОЦСЕТИ -->
 <section id="socials">
 <div class="container">
@@ -2024,19 +1867,14 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 </section>
-
 <!-- ФОРМА -->
-
-
 <!-- FOOTER -->
-
 <!-- ОТЗЫВЫ -->
 <section id="reviews" style="padding:6rem 0;background:#fff;">
 <div class="container">
   <div class="section-label reveal">Доверие</div>
   <h2 class="section-title reveal">От<span>зывы</span></h2>
   <p class="section-desc reveal">200+ довольных покупателей с 2024 года</p>
-
   <!-- Search -->
   <div style="max-width:500px;margin:0 auto 2.5rem;position:relative;">
     <input id="reviewSearch" type="text" placeholder="🔍 Поиск по отзывам (номер фото...)" 
@@ -2044,7 +1882,6 @@ body::before{content:'';position:fixed;inset:0;
       style="width:100%;padding:0.9rem 1.4rem;border-radius:50px;border:2px solid #e0e0e0;font-size:1rem;outline:none;box-sizing:border-box;transition:border 0.2s;"
       onfocus="this.style.borderColor='#0a74da'" onblur="this.style.borderColor='#e0e0e0'"/>
   </div>
-
   <!-- Grid -->
   <div id="reviewsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.8rem;">
     <div class="review-img-wrap" onclick="openReviewLightbox(0)"><img src="https://i.ibb.co/VY5gSL5x/photo-1-2026-03-21-20-15-09.jpg" alt="Отзыв 1" loading="lazy"/><div class="review-img-num">1</div></div>
@@ -2146,16 +1983,13 @@ body::before{content:'';position:fixed;inset:0;
 <div class="review-img-wrap" onclick="openReviewLightbox(96)"><img src="https://i.ibb.co/fVNjMkvp/photo-97-2026-03-21-20-15-09.jpg" alt="Отзыв 97" loading="lazy"/><div class="review-img-num">97</div></div>
 <div class="review-img-wrap" onclick="openReviewLightbox(97)"><img src="https://i.ibb.co/VY8DC963/photo-98-2026-03-21-20-15-09.jpg" alt="Отзыв 98" loading="lazy"/><div class="review-img-num">98</div></div>
 <div class="review-img-wrap" onclick="openReviewLightbox(98)"><img src="https://i.ibb.co/qQRS0FT/photo-99-2026-03-21-20-15-09.jpg" alt="Отзыв 99" loading="lazy"/><div class="review-img-num">99</div></div>
-
   </div>
-
   <div style="text-align:center;margin-top:2rem;">
     <a href="https://t.me/wear00xx" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;background:#0088cc;color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:1rem;">
       <i class="fab fa-telegram"></i> Все отзывы в Telegram
     </a>
   </div>
 </div>
-
 <!-- Review Lightbox -->
 <div id="reviewLightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;flex-direction:column;" onclick="if(event.target===this)closeReviewLightbox()">
   <button onclick="closeReviewLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:default;">&#10005;</button>
@@ -2165,7 +1999,6 @@ body::before{content:'';position:fixed;inset:0;
   <button onclick="reviewNav(1)" style="position:absolute;right:1rem;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:2rem;cursor:default;border-radius:50%;width:50px;height:50px;">&#8250;</button>
 </div>
 </section>
-
 <footer>
 <div class="container text-center">
 <div class="footer-logo">00x Wear</div>
@@ -2179,14 +2012,11 @@ body::before{content:'';position:fixed;inset:0;
 <p style="color:#aaa;font-size:0.9rem;">&copy; 2026 00x Wear — Street Minimal. Все права защищены.</p>
 </div>
 </footer>
-
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
 <i class="fas fa-chevron-up"></i>
 </button>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-
 // Pulse анимация при клике
 document.querySelectorAll('.btn-buy-anim').forEach(btn => {
   btn.addEventListener('click', function() {
@@ -2194,9 +2024,6 @@ document.querySelectorAll('.btn-buy-anim').forEach(btn => {
     setTimeout(() => this.classList.remove('pulse'), 1200);
   });
 });
-
-
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2204,20 +2031,16 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 // Scroll effects
 window.addEventListener('scroll',()=>{
 document.querySelector('.header').classList.toggle('scrolled',window.scrollY>50);
 document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300);
 });
-
 // Reveal on scroll
 const observer=new IntersectionObserver((entries)=>{
 entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
 },{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
 // LocalStorage reviews
 function renderReviews(){
 const saved=JSON.parse(localStorage.getItem('reviews')||'[]');
@@ -2232,7 +2055,6 @@ observer.observe(card);
 }
 renderReviews();
 </script>
-
 <!-- LIGHTBOX -->
 <div class="lightbox-overlay" id="lightbox" onclick="lbClose(event)">
   <span class="lightbox-close" onclick="closeLightbox()">×</span>
@@ -2241,9 +2063,7 @@ renderReviews();
   <button class="lightbox-arrow next" onclick="lbNext(event)"><i class="fas fa-chevron-right"></i></button>
   <div class="lightbox-counter" id="lbCounter"></div>
 </div>
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2251,11 +2071,8 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 let lbImages = [];
 let lbIndex = 0;
-
 // Collect all product images on load
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.product-img img, .jeans-photo img').forEach((img, i) => {
@@ -2263,7 +2080,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lbImages.push(img.src);
   });
 });
-
 function openLightbox(i) {
   lbIndex = i;
   document.getElementById('lbImg').src = lbImages[i];
@@ -2284,7 +2100,6 @@ document.addEventListener('keydown', e => {
   if(e.key==='ArrowLeft') lbPrev(e);
   if(e.key==='Escape') closeLightbox();
 });
-
 // Touch swipe
 let tsX=0;
 document.getElementById('lightbox').addEventListener('touchstart',e=>tsX=e.touches[0].clientX);
@@ -2293,9 +2108,7 @@ document.getElementById('lightbox').addEventListener('touchend',e=>{
   if(Math.abs(dx)>50){ dx<0?lbNext(e):lbPrev(e); }
 });
 </script>
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2303,8 +2116,6 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 function slideCard(btn, dir) {
   const container = btn.parentElement;
   const imgs = container.querySelectorAll('.slide-img');
@@ -2315,13 +2126,6 @@ function slideCard(btn, dir) {
   imgs[next].style.display = 'block';
 }
 </script>
-
-
-
-
-
-
-
 <div class="modal-overlay" id="contactModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeContactModal()">&#10005;</button>
@@ -2334,9 +2138,7 @@ function slideCard(btn, dir) {
     <a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" class="contact-btn avito">&#127978; Avito</a>
   </div>
 </div>
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2344,8 +2146,6 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 function filterCat(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
@@ -2378,10 +2178,7 @@ document.addEventListener('DOMContentLoaded',function(){
     });
 });
 </script>
-
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2389,11 +2186,8 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 var _reviewImgs = ['https://i.ibb.co/VY5gSL5x/photo-1-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/KzRfzw77/photo-2-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/WNc9kJdD/photo-3-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/C5KZP61C/photo-4-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/spjMq631/photo-5-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Ps81rdtn/photo-6-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/LX4tDPmw/photo-7-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/DDtpcLTd/photo-8-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/4nksCNx2/photo-9-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/gM5L0tc9/photo-10-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Kc6v6bbB/photo-11-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5WRVMFXv/photo-12-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/chc0pmNM/photo-13-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/ycqbXc1n/photo-14-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/ccGrGQv4/photo-15-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Qjf8Tppv/photo-16-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/tpWp7tVL/photo-17-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/sdbSFVJm/photo-18-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/fjsg6y4/photo-19-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/rghkfmz/photo-20-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/v6RLzXgF/photo-21-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/PZg6Sw4T/photo-22-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/8LdDp7p1/photo-23-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Xr5yfT50/photo-24-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/GQbGdb5z/photo-25-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/3mmQKs2L/photo-26-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/KcQ2YWqp/photo-27-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/cSTxkQMC/photo-28-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/zhcH0Psh/photo-29-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/sdW9kjNq/photo-30-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5WJmmSXM/photo-31-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/nMJQKHLB/photo-32-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/1fVqnm5n/photo-33-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/k2x37zRG/photo-34-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Wvr7xsjZ/photo-35-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/8nsnzN8h/photo-36-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/hJkhdnTV/photo-37-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/bjgzJmbM/photo-38-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/gbxkbLsn/photo-39-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qMT7dDTP/photo-40-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qSR8vqP/photo-41-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/2bJ7ysp/photo-42-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/TxkVzLdY/photo-43-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/gM77Cgtn/photo-44-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/d03tRFjX/photo-45-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5g5T7m75/photo-46-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Dfd0MSTd/photo-47-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/whj5sW1z/photo-48-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/7JxLRHDT/photo-49-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/p6Xxj51P/photo-50-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/6JByG0BZ/photo-51-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/v4F3jG0Z/photo-52-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/7x2kzCPR/photo-53-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/VpYGdhCD/photo-54-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/JjPh8GWW/photo-55-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/6RNVjk9X/photo-56-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/NngF8BH8/photo-57-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/HTTH1y96/photo-58-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5NRvd8z/photo-59-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/k6yn949f/photo-60-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/j9B2bRnb/photo-61-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/TD6Zqxtb/photo-62-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/DHjc6HSq/photo-63-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/HfFwR50X/photo-64-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/fGHSS2ZV/photo-65-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/BV1L6x0B/photo-66-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Fk9QZBjM/photo-67-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/8ncZDryH/photo-68-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/3mRDckt5/photo-69-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/jvpRjhzk/photo-70-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/5X29DL8x/photo-71-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/20vWTrrn/photo-72-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/hRZfQ6Zf/photo-73-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/zT5H2Vdr/photo-74-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qYT8YsNf/photo-75-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/MkzwrpfM/photo-76-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/zTVLQ6Rk/photo-77-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/RkNV9qrH/photo-78-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Y4SYpw8Q/photo-79-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/NgbrrnWD/photo-80-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/0pzQj1NH/photo-81-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/nNZJPh6b/photo-82-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/xSYKKKr6/photo-83-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/dwSZ3q04/photo-84-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Jwd8Thrn/photo-85-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/Y4DXLSY4/photo-86-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/VpYWGQs0/photo-87-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/C52Hpz4t/photo-88-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/nq1gfbGT/photo-89-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/r2VSLt9q/photo-90-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/kVPRP8xh/photo-91-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/CsK9Cm09/photo-92-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/35q8VQTC/photo-93-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/P30HPrk/photo-94-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/wN5m6wP3/photo-95-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/208G4pgR/photo-96-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/fVNjMkvp/photo-97-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/VY8DC963/photo-98-2026-03-21-20-15-09.jpg', 'https://i.ibb.co/qQRS0FT/photo-99-2026-03-21-20-15-09.jpg'];
 var _reviewIdx = 0;
-
 function openReviewLightbox(idx){
   _reviewIdx = idx;
   var lb = document.getElementById('reviewLightbox');
@@ -2426,10 +2220,7 @@ function searchReviews(q){
   });
 }
 </script>
-
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2437,8 +2228,6 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 function searchCatalog(q){
   q = q.toLowerCase().trim();
   document.querySelectorAll('.product-card').forEach(function(card){
@@ -2447,10 +2236,7 @@ function searchCatalog(q){
   });
 }
 </script>
-
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2458,8 +2244,6 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 let currentSlides = {};
 function slideCard(btn, dir) {
   event.stopPropagation();
@@ -2472,9 +2256,7 @@ function slideCard(btn, dir) {
   });
 }
 </script>
-
 <script>
-
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
@@ -2482,8 +2264,6 @@ document.querySelectorAll('.product-card').forEach(card => {
     }
   });
 });
-
-
 let products = [];
 function toggleAdmin() {
   document.getElementById('adminPanel').classList.toggle('open');
@@ -2498,7 +2278,6 @@ function addProduct(e) {
   const img = document.getElementById('adminImg').value;
   const cat = document.getElementById('adminCat').value;
   const desc = document.getElementById('adminDesc').value;
-
   const product = {name, price, img, cat, desc, id: Date.now()};
   products.push(product);
   localStorage.setItem('adminProducts', JSON.stringify(products));
@@ -2520,10 +2299,361 @@ function deleteProduct(id) {
   localStorage.setItem('adminProducts', JSON.stringify(products));
   updateAdminList();
 }
+// Загрузка при старте
 if (localStorage.getItem('adminProducts')) {
   products = JSON.stringify(localStorage.getItem('adminProducts'));
   updateAdminList();
 }
+</script>
+
+<!-- 🔥 ФИЛЬТРЫ + КАТЕГОРИИ ФИКС -->
+<script>
+// ГЛОБАЛЬНЫЕ
+let currentFilters = {sizeMin:34, sizeMax:52, priceMin:0, priceMax:20000};
+let currentSort = '';
+
+// ФИЛЬТРЫ
+function applyAdvancedFilters() {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    if (card.style.display === 'none') return; // категории работают
+
+    let pass = true;
+
+    const size = parseInt(card.dataset.size) || 0;
+    if (size < currentFilters.sizeMin || size > currentFilters.sizeMax) pass = false;
+
+    const price = parseInt(card.dataset.price) || 0;
+    if (price < currentFilters.priceMin || price > currentFilters.priceMax) pass = false;
+
+    card.style.opacity = pass ? '1' : '0.3';
+    card.style.pointerEvents = pass ? 'auto' : 'none';
+  });
+}
+
+// СОРТИРОВКА
+function sortVisibleCards(type) {
+  const container = document.getElementById('catalogGrid');
+  const visible = Array.from(container.children).filter(c => c.style.opacity !== '0.3');
+
+  visible.sort((a, b) => {
+    const getNum = (el, key) => parseInt(el.dataset[key]) || 0;
+    return type === 'price-asc' ? getNum(a, 'price') - getNum(b, 'price') :
+           type === 'price-desc' ? getNum(b, 'price') - getNum(a, 'price') : 0;
+  });
+
+  visible.forEach(card => container.appendChild(card));
+}
+
+// ОБНОВЛЕНИЕ ФИЛЬТРОВ
+document.addEventListener('input', e => {
+  if (e.target.matches('#sizeMin, #sizeMax, #priceMin, #priceMax')) {
+    currentFilters.sizeMin = parseInt(document.getElementById('sizeMin')?.value) || 34;
+    currentFilters.sizeMax = parseInt(document.getElementById('sizeMax')?.value) || 52;
+    currentFilters.priceMin = parseInt(document.getElementById('priceMin')?.value) || 0;
+    currentFilters.priceMax = parseInt(document.getElementById('priceMax')?.value) || 20000;
+    applyAdvancedFilters();
+  }
+});
+
+// КНОПКИ
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('sort-btn')) {
+    const type = e.target.textContent.includes('↑') ? 'price-asc' : 'price-desc';
+    sortVisibleCards(type);
+  }
+
+  if (e.target.onclick?.toString().includes('resetFilters')) {
+    document.querySelectorAll('.filters-panel input').forEach(input => input.value = '');
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.opacity = '1';
+      card.style.pointerEvents = 'auto';
+    });
+  }
+});
+
+console.log('✅ Фикс добавлен - фильтры работают поверх категорий!');
+</script>
+
+<style>
+.sort-btn.active { background: #0a74da !important; color: white !important; }
+.product-card { transition: opacity 0.3s, pointer-events 0.3s; }
+</style>
+
+<!-- Ozon/WB СТИЛЬ -->
+<div class="ozon-filters" style="background:#fff;border:1px solid #e5e5e5;border-radius:16px;padding:1rem;margin:2rem 0;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+
+    <!-- СОРТИРОВКА -->
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <span style="font-weight:600;color:#333;font-size:0.95rem;">Сортировать:</span>
+      <select onchange="ozonSort(this.value)" style="padding:0.7rem 1rem;border:1px solid #ddd;border-radius:10px;font-weight:500;background:#f8f9fa;cursor:pointer;">
+        <option value="popular">По популярности</option>
+        <option value="price-asc">От дешёвых к дорогим</option>
+        <option value="price-desc">От дорогих к дешёвым</option>
+        <option value="rating">По рейтингу</option>
+        <option value="newest">Новинки</option>
+      </select>
+    </div>
+
+    <!-- КОЛИЧЕСТВО -->
+    <div style="font-weight:600;color:#666;font-size:0.95rem;" id="item-count">0 товаров</div>
+
+    <!-- КНОПКА ФИЛЬТРОВ -->
+    <button onclick="toggleOzonFilters()" id="filter-btn" style="display:flex;align-items:center;gap:0.5rem;padding:0.8rem 1.5rem;border:1px solid #ddd;background:#f8f9fa;border-radius:12px;font-weight:600;cursor:pointer;transition:all 0.2s;">
+      <i class="fas fa-sliders-h"></i> Фильтры
+      <span id="filter-badge" style="background:#ff6b35;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;">3</span>
+    </button>
+  </div>
+</div>
+
+<!-- ДРОПДАУН ФИЛЬТРОВ -->
+<div class="ozon-dropdown" id="ozon-dropdown" style="display:none;background:#fff;border:1px solid #e5e5e5;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.15);padding:1.5rem;margin-top:0.5rem;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;">
+
+    <!-- РАЗМЕР -->
+    <div>
+      <label style="display:block;font-weight:600;margin-bottom:0.8rem;color:#333;">Размер</label>
+      <div style="display:flex;gap:1rem;align-items:center;">
+        <input type="range" id="size-range" min="34" max="52" value="42" style="flex:1;">
+        <span id="size-value" style="font-weight:600;color:#0a74da;min-width:40px;">W42</span>
+      </div>
+    </div>
+
+    <!-- ЦЕНА -->
+    <div>
+      <label style="display:block;font-weight:600;margin-bottom:0.8rem;color:#333;">Цена</label>
+      <div style="display:flex;gap:0.5rem;">
+        <input type="number" id="price-from" placeholder="от" style="flex:1;padding:0.8rem;border:1px solid #ddd;border-radius:8px;">
+        <input type="number" id="price-to" placeholder="до" style="flex:1;padding:0.8rem;border:1px solid #ddd;border-radius:8px;">
+      </div>
+    </div>
+
+    <!-- СОСТОЯНИЕ -->
+    <div>
+      <label style="display:block;font-weight:600;margin-bottom:0.8rem;color:#333;">Состояние</label>
+      <select id="condition-filter" style="width:100%;padding:0.8rem;border:1px solid #ddd;border-radius:8px;">
+        <option>Любое</option>
+        <option>Новое</option>
+        <option>Без дефектов</option>
+        <option>С мелкими дефектами</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #eee;display:flex;gap:1rem;justify-content:flex-end;">
+    <button onclick="resetOzonFilters()" style="padding:0.8rem 2rem;border:1px solid #ddd;background:#fff;border-radius:10px;font-weight:600;cursor:pointer;">Сбросить</button>
+    <button onclick="applyOzonFilters()" style="padding:0.8rem 2rem;background:#0a74da;color:white;border:none;border-radius:10px;font-weight:600;cursor:pointer;">Показать <span id="ozon-count">0</span> товаров</button>
+  </div>
+</div>
+
+<script>
+// ========== OZON/WB LOGIC ==========
+let ozonFilters = {
+  size: 42,
+  priceMin: 0,
+  priceMax: 20000,
+  condition: 'any'
+};
+
+// Toggle dropdown
+function toggleOzonFilters() {
+  const dropdown = document.getElementById('ozon-dropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+// СОРТИРОВКА
+function ozonSort(value) {
+  const grid = document.getElementById('catalogGrid');
+  const cards = Array.from(grid.querySelectorAll('.product-card'));
+
+  cards.sort((a, b) => {
+    const getNum = (el, prop) => parseFloat(el.dataset[prop]) || 0;
+
+    switch(value) {
+      case 'price-asc': return getNum(a, 'price') - getNum(b, 'price');
+      case 'price-desc': return getNum(b, 'price') - getNum(a, 'price');
+      case 'rating': return getNum(b, 'condition') - getNum(a, 'condition');
+      case 'newest': return getNum(b, 'new') - getNum(a, 'new');
+      default: return 0;
+    }
+  });
+
+  cards.forEach((card, index) => {
+    grid.appendChild(card);
+    card.dataset.order = index;
+  });
+}
+
+// ФИЛЬТРЫ
+document.getElementById('size-range').addEventListener('input', e => {
+  document.getElementById('size-value').textContent = 'W' + e.target.value;
+  ozonFilters.size = parseInt(e.target.value);
+});
+
+function applyOzonFilters() {
+  ozonFilters.priceMin = parseInt(document.getElementById('price-from').value) || 0;
+  ozonFilters.priceMax = parseInt(document.getElementById('price-to').value) || 20000;
+  ozonFilters.condition = document.getElementById('condition-filter').value;
+
+  const cards = document.querySelectorAll('.product-card');
+  let count = 0;
+
+  cards.forEach(card => {
+    let match = true;
+
+    const size = parseInt(card.dataset.size) || 0;
+    if (size !== ozonFilters.size) match = false;
+
+    const price = parseInt(card.dataset.price) || 0;
+    if (price < ozonFilters.priceMin || price > ozonFilters.priceMax) match = false;
+
+    card.style.display = match ? '' : 'none';
+    if (match) count++;
+  });
+
+  document.getElementById('ozon-count').textContent = count;
+  document.getElementById('item-count').textContent = count + ' товаров';
+  toggleOzonFilters();
+}
+
+function resetOzonFilters() {
+  document.getElementById('size-range').value = 42;
+  document.getElementById('size-value').textContent = 'W42';
+  document.getElementById('price-from').value = '';
+  document.getElementById('price-to').value = '';
+  document.getElementById('condition-filter').value = 'any';
+  document.querySelectorAll('.product-card').forEach(card => card.style.display = '');
+  document.getElementById('item-count').textContent = 'Все товары';
+}
+
+// СЧЁТЧИК
+function updateCount() {
+  const visible = document.querySelectorAll('.product-card[style*="display: block"], .product-card[style*="display: flex"], .product-card:not([style*="none"])').length;
+  document.getElementById('item-count').textContent = visible + ' товаров';
+}
+
+// ИНИЦИАЛИЗАЦИЯ
+document.addEventListener('DOMContentLoaded', () => {
+  updateCount();
+  console.log('✅ Ozon/WB фильтры активны!');
+});
+</script>
+
+<script>
+const SIZE_ORDER = ["XS","S","M","L","XL","2XL","3XL","W28","W30","W32","W34","W36","W38","W40","W42","W44","W46","W48","ONE SIZE"];
+function sizeRank(s){
+  s = (s||"").trim().toUpperCase();
+  for(let i=0;i<SIZE_ORDER.length;i++){if(s.includes(SIZE_ORDER[i]))return i;}
+  return 99;
+}
+let F = {c:""};
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".product-card").forEach(c=>{
+    c.dataset.p = c.querySelector(".product-price")?.textContent.replace(/\D/g,"")*1||0;
+    c.dataset.z = c.querySelector(".product-badge")?.textContent||"";
+    c.dataset.n = c.querySelector(".product-name")?.textContent.toLowerCase()||"";
+  });
+  updateCount();
+  initPerfectMenu();
+  initScrollReveal();
+});
+
+function applyFilters(){
+  const o = document.getElementById("sortBy")?.value||"default";
+  const cards = [...document.querySelectorAll("#catalogGrid .product-card")];
+  let visible = cards.filter(c=> !F.c || c.dataset.category === F.c);
+  cards.forEach(c=> c.classList.toggle("hidden", F.c && c.dataset.category !== F.c));
+
+  if(o !== "default"){
+    visible.sort((a,b)=>{
+      if(o==="price-asc") return a.dataset.p*1 - b.dataset.p*1;
+      if(o==="price-desc") return b.dataset.p*1 - a.dataset.p*1;
+      if(o==="size-asc") return sizeRank(a.dataset.z) - sizeRank(b.dataset.z);
+      if(o==="size-desc") return sizeRank(b.dataset.z) - sizeRank(a.dataset.z);
+    });
+    const hidden = cards.filter(c=>!visible.includes(c));
+    [...visible,...hidden].forEach(c=>document.getElementById("catalogGrid").appendChild(c));
+  }
+  updateCount();
+}
+
+function updateCount(){
+  document.getElementById("itemCount").textContent = document.querySelectorAll("#catalogGrid .product-card:not(.hidden)").length;
+}
+
+function filterCat(c,e){
+  [...document.querySelectorAll(".filter-btn")].forEach(b=>b.classList.remove("active"));
+  e.classList.add("active");
+  F.c = c==="all" ? "" : c;
+  applyFilters();
+}
+
+function searchCatalog(val){
+  val = val.toLowerCase();
+  document.querySelectorAll("#catalogGrid .product-card").forEach(c=>{
+    const match = c.dataset.n.includes(val) || (c.querySelector(".product-cat")?.textContent||"").toLowerCase().includes(val);
+    c.classList.toggle("hidden",!match);
+  });
+  updateCount();
+}
+
+function initPerfectMenu(){
+  document.addEventListener("click",e=>{
+    if(!e.target.closest(".buy-block")) document.querySelectorAll(".perfect-menu").forEach(m=>m.style.display="none");
+  });
+  document.querySelectorAll(".btn-buy-perfect").forEach(btn=>{
+    btn.addEventListener("click",e=>{
+      e.stopPropagation();
+      const menu=btn.nextElementSibling;
+      document.querySelectorAll(".perfect-menu").forEach(m=>{if(m!==menu)m.style.display="none";});
+      menu.style.display = menu.style.display==="block"?"none":"block";
+    });
+  });
+}
+
+function initScrollReveal(){
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");}),{threshold:0.1});
+  document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+}
+
+function slideCard(btn,dir){
+  const wrap=btn.closest(".product-img");
+  const imgs=[...wrap.querySelectorAll(".slide-img")];
+  if(!imgs.length)return;
+  const cur=imgs.findIndex(i=>i.style.display!=="none");
+  imgs[cur].style.display="none";
+  imgs[(cur+dir+imgs.length)%imgs.length].style.display="block";
+}
+
+let lbImgs=[],lbIdx=0;
+function openLightbox(src,group){
+  const all=group?[...document.querySelectorAll(`[data-slide-group="${group}"] .slide-img`)].map(i=>i.src):[src];
+  lbImgs=all.length?all:[src];lbIdx=0;
+  document.getElementById("lightboxImg").src=lbImgs[0];
+  document.getElementById("lightboxOverlay").classList.add("active");
+}
+function closeLightbox(){document.getElementById("lightboxOverlay").classList.remove("active");}
+function lbMove(d){lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById("lightboxImg").src=lbImgs[lbIdx];}
+
+function openModal(title,price){
+  document.getElementById("modalTitle").textContent=title;
+  document.getElementById("modalPrice").textContent=price;
+  document.getElementById("orderModal").classList.add("open");
+}
+function closeModal(){document.getElementById("orderModal").classList.remove("open");}
+function sendOrder(){
+  const u=document.getElementById("modalUsername").value.trim();
+  if(!u){alert("Введи username Telegram");return;}
+  document.getElementById("modalForm").style.display="none";
+  document.getElementById("modalSuccess").style.display="block";
+}
+
+window.addEventListener("scroll",()=>{
+  document.querySelector(".scroll-top")?.classList.toggle("show",window.scrollY>400);
+  document.querySelector(".header")?.classList.toggle("scrolled",window.scrollY>20);
+});
+function scrollToTop(){window.scrollTo({top:0,behavior:"smooth"});}
 </script>
 </body>
 </html>

@@ -9,23 +9,18 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#f0f4ff;color:#111;}
-
-/* LOCK */
 #lock{position:fixed;inset:0;background:linear-gradient(135deg,#0a0e1f,#1a3a6a);display:flex;align-items:center;justify-content:center;z-index:9999;}
-.lbox{background:#fff;border-radius:24px;padding:2.5rem 2rem;width:90%;max-width:380px;text-align:center;box-shadow:0 40px 100px rgba(0,0,0,0.5);}
+.lbox{background:#fff;border-radius:24px;padding:2.5rem 2rem;width:90%;max-width:380px;text-align:center;box-shadow:0 40px 100px rgba(0,0,0,.5);}
 .llogo{font-size:2rem;font-weight:900;color:#0a74da;margin-bottom:4px;}
-.lsub{font-size:0.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#0a74da;opacity:.6;margin-bottom:1.5rem;}
+.lsub{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#0a74da;opacity:.6;margin-bottom:1.5rem;}
 .licon{font-size:3rem;margin-bottom:.8rem;}
 .ltitle{font-size:1.1rem;font-weight:900;margin-bottom:.3rem;}
 .ldesc{font-size:.85rem;color:#888;margin-bottom:1.5rem;}
 #lpass{width:100%;padding:.9rem;border:2px solid #e0e8ff;border-radius:12px;font-size:1rem;text-align:center;letter-spacing:4px;outline:none;font-family:inherit;}
 #lpass:focus{border-color:#0a74da;}
 #lbtn{width:100%;padding:.95rem;margin-top:.8rem;border:none;border-radius:12px;background:linear-gradient(135deg,#0a74da,#42a5f5);color:#fff;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;}
-#lbtn:hover{opacity:.9;}
 #lerr{color:#e53935;font-size:.85rem;font-weight:700;margin-top:.7rem;display:none;}
 .lhint{font-size:.75rem;color:#bbb;margin-top:.8rem;}
-
-/* LAYOUT */
 header{background:#fff;border-bottom:1px solid #e8f0fe;padding:0 1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(10,116,218,.08);}
 .hlogo{font-size:1.3rem;font-weight:900;color:#0a74da;}
 .hbadge{background:linear-gradient(135deg,#e65100,#ff8f00);color:#fff;font-size:.65rem;font-weight:800;padding:2px 8px;border-radius:20px;letter-spacing:2px;margin-left:6px;}
@@ -33,74 +28,54 @@ header{background:#fff;border-bottom:1px solid #e8f0fe;padding:0 1.5rem;height:6
 .hbtn:hover{border-color:#0a74da;color:#0a74da;}
 .hbtn.red{border-color:#ffd0d0;color:#e53935;}
 .hbtn.red:hover{background:#e53935;color:#fff;border-color:transparent;}
-
 .wrap{display:flex;min-height:calc(100vh - 60px);}
-
-/* SIDEBAR */
 aside{width:220px;background:#fff;border-right:1px solid #e8f0fe;padding:1.2rem .8rem;flex-shrink:0;}
 @media(max-width:700px){aside{display:none;}}
 .nlabel{font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#aaa;padding:.4rem .8rem .2rem;}
-.nitem{display:flex;align-items:center;gap:9px;padding:.65rem .9rem;border-radius:10px;font-size:.85rem;font-weight:700;color:#888;cursor:pointer;border:none;background:none;width:100%;text-align:left;font-family:inherit;transition:all .15s;}
+.nitem{display:flex;align-items:center;gap:9px;padding:.65rem .9rem;border-radius:10px;font-size:.85rem;font-weight:700;color:#888;cursor:pointer;border:none;background:none;width:100%;text-align:left;font-family:inherit;}
 .nitem:hover{background:#f0f8ff;color:#0a74da;}
-.nitem.on{background:linear-gradient(135deg,rgba(10,116,218,.1),rgba(66,165,245,.05));color:#0a74da;}
+.nitem.on{background:rgba(10,116,218,.1);color:#0a74da;}
 .nitem i{width:16px;text-align:center;}
 .nsep{height:1px;background:#f0f4ff;margin:.4rem 0;}
-
-/* MOBILE NAV */
 .mnav{display:none;overflow-x:auto;background:#fff;border-bottom:1px solid #e8f0fe;padding:.6rem 1rem;gap:.5rem;}
 @media(max-width:700px){.mnav{display:flex;position:sticky;top:60px;z-index:99;}}
 .mnav button{padding:.4rem .9rem;border-radius:50px;border:2px solid #e0e8ff;background:#fff;color:#888;font-size:.73rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;}
 .mnav button.on{background:#0a74da;color:#fff;border-color:transparent;}
-
 main{flex:1;padding:1.8rem;overflow-y:auto;}
 @media(max-width:700px){main{padding:1rem;}}
 .page{display:none;}
 .page.on{display:block;}
-
-/* CARDS */
 .card{background:#fff;border-radius:18px;padding:1.4rem;box-shadow:0 6px 24px rgba(10,116,218,.08);border:1px solid #e8f0fe;margin-bottom:1.2rem;}
 .stgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.9rem;margin-bottom:1.5rem;}
 .stcard{background:#fff;border-radius:14px;padding:1.1rem 1.3rem;box-shadow:0 4px 16px rgba(10,116,218,.08);border:1px solid #e8f0fe;}
 .sticon{font-size:1.5rem;margin-bottom:.3rem;}
 .stval{font-size:1.7rem;font-weight:900;color:#0a74da;}
 .stlbl{font-size:.7rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
-
 .sech{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.6rem;}
 .sect{font-size:1.2rem;font-weight:900;}
 .sect span{color:#0a74da;}
-
 .pbtn{padding:.75rem 1.6rem;border:none;border-radius:10px;background:linear-gradient(135deg,#0a74da,#42a5f5);color:#fff;font-size:.88rem;font-weight:800;cursor:pointer;font-family:inherit;}
-.pbtn:hover{opacity:.9;}
 .sbtn{padding:.38rem .85rem;border:none;border-radius:8px;font-size:.73rem;font-weight:700;cursor:pointer;font-family:inherit;}
 .sdel{background:#fff0f0;color:#e53935;}
 .sdel:hover{background:#e53935;color:#fff;}
-
-/* FORM */
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 @media(max-width:500px){.fgrid{grid-template-columns:1fr;}}
 .ff{grid-column:1/-1;}
 .flabel{font-size:.75rem;font-weight:700;color:#888;margin-bottom:.3rem;display:block;}
 .finput{width:100%;padding:.7rem 1rem;border:2px solid #e0e8ff;border-radius:10px;font-size:.9rem;color:#111;font-family:inherit;outline:none;background:#f5f8ff;}
 .finput:focus{border-color:#0a74da;background:#fff;}
-
-/* TABLE */
 table{width:100%;border-collapse:collapse;}
 th{text-align:left;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;padding:.6rem 1rem;border-bottom:2px solid #f0f4ff;}
 td{padding:.8rem 1rem;border-bottom:1px solid #f0f4ff;vertical-align:middle;}
 tr:last-child td{border-bottom:none;}
-tr:hover td{background:#fafcff;}
 .thumb{width:40px;height:50px;object-fit:cover;border-radius:8px;background:#f0f4ff;display:block;}
 .cbadge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.68rem;font-weight:700;background:rgba(10,116,218,.1);color:#0a74da;}
 .empty{text-align:center;padding:2.5rem;color:#ccc;font-size:.9rem;}
-
-/* SETTINGS */
 .srow{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid #f0f4ff;gap:1rem;}
 .srow:last-child{border-bottom:none;}
 .slbl{font-weight:700;font-size:.88rem;}
 .sdesc{font-size:.75rem;color:#aaa;margin-top:2px;}
-
-/* TOAST */
-#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#111827,#0a74da);color:#fff;padding:.65rem 1.6rem;border-radius:50px;font-weight:700;font-size:.82rem;z-index:9999;box-shadow:0 8px 32px rgba(10,116,218,.4);opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#111827,#0a74da);color:#fff;padding:.65rem 1.6rem;border-radius:50px;font-weight:700;font-size:.82rem;z-index:99999;box-shadow:0 8px 32px rgba(10,116,218,.4);opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;}
 code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
 </style>
 </head>
@@ -110,63 +85,63 @@ code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
   <div class="lbox">
     <div class="llogo">00x Wear</div>
     <div class="lsub">Admin Panel</div>
-    <div class="licon">🔐</div>
+    <div class="licon">&#128;</div>
     <div class="ltitle">Вход в систему</div>
     <div class="ldesc">Введите пароль администратора</div>
-    <input type="password" id="lpass" placeholder="••••••••">
-    <button id="lbtn" type="button" onclick="var v=document.getElementById('lpass').value.trim();var p=(localStorage.getItem('p00x')||'admin123').trim();if(v===p){document.getElementById('lock').style.display='none';document.getElementById('lerr').style.display='none';document.getElementById('lpass').value='';init();}else{document.getElementById('lerr').style.display='block';document.getElementById('lpass').select();}">Войти</button>
-    <div id="lerr">❌ Неверный пароль</div>
-    <div class="lhint">По умолчанию: <b>admin123</b></div>
+    <input type="password" id="lpass" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;">
+    <button id="lbtn" type="button">Войти</button>
+    <div id="lerr">Неверный пароль</div>
+    <div class="lhint">По умолчанию: admin123</div>
   </div>
 </div>
 
 <header>
   <div><span class="hlogo">00x Wear</span><span class="hbadge">ADMIN</span></div>
   <div>
-    <button class="hbtn" onclick="window.open('index.html','_blank')">На сайт</button>
-    <button class="hbtn red" onclick="logout()">Выйти</button>
+    <button class="hbtn" id="btnSite">На сайт</button>
+    <button class="hbtn red" id="btnLogout">Выйти</button>
   </div>
 </header>
 
 <div class="mnav">
-  <button class="on" onclick="go('dash',this)">📊 Дашборд</button>
-  <button onclick="go('prods',this)">📦 Товары</button>
-  <button onclick="go('add',this)">➕ Добавить</button>
-  <button onclick="go('orders',this)">🛒 Корзина</button>
-  <button onclick="go('settings',this)">⚙️ Настройки</button>
+  <button class="on" data-p="dash">Дашборд</button>
+  <button data-p="prods">Товары</button>
+  <button data-p="add">+ Добавить</button>
+  <button data-p="orders">Корзина</button>
+  <button data-p="settings">Настройки</button>
 </div>
 
 <div class="wrap">
   <aside>
     <div class="nlabel">Главное</div>
-    <button class="nitem on" onclick="go('dash',this)"><i class="fas fa-chart-bar"></i> Дашборд</button>
-    <button class="nitem" onclick="go('prods',this)"><i class="fas fa-box"></i> Товары</button>
-    <button class="nitem" onclick="go('add',this)"><i class="fas fa-plus-circle"></i> Добавить</button>
+    <button class="nitem on" data-p="dash"><i class="fas fa-chart-bar"></i> Дашборд</button>
+    <button class="nitem" data-p="prods"><i class="fas fa-box"></i> Товары</button>
+    <button class="nitem" data-p="add"><i class="fas fa-plus-circle"></i> Добавить</button>
     <div class="nsep"></div>
     <div class="nlabel">Управление</div>
-    <button class="nitem" onclick="go('orders',this)"><i class="fas fa-shopping-cart"></i> Корзина</button>
-    <button class="nitem" onclick="go('settings',this)"><i class="fas fa-cog"></i> Настройки</button>
+    <button class="nitem" data-p="orders"><i class="fas fa-shopping-cart"></i> Корзина</button>
+    <button class="nitem" data-p="settings"><i class="fas fa-cog"></i> Настройки</button>
   </aside>
 
   <main>
     <div class="page on" id="pg-dash">
-      <div class="sech"><div class="sect">Привет, <span>Админ</span> 👋</div><span id="ddate" style="font-size:.8rem;color:#aaa;"></span></div>
+      <div class="sech"><div class="sect">Привет, <span>Админ</span></div><span id="ddate" style="font-size:.8rem;color:#aaa;"></span></div>
       <div class="stgrid" id="stgrid"></div>
       <div class="card">
-        <div style="font-weight:800;margin-bottom:1rem;">🕒 Последние товары</div>
+        <div style="font-weight:800;margin-bottom:1rem;">Последние товары</div>
         <div id="recent"></div>
       </div>
     </div>
 
     <div class="page" id="pg-prods">
       <div class="sech">
-        <div class="sect">📦 Все <span>товары</span></div>
-        <button class="pbtn" onclick="go('add', document.querySelector('.nitem:nth-child(3)'))">+ Добавить</button>
+        <div class="sect">Все <span>товары</span></div>
+        <button class="pbtn" id="btnGoAdd">+ Добавить</button>
       </div>
       <div class="card" style="padding:0;overflow:hidden;">
         <div style="padding:.9rem 1.2rem;border-bottom:1px solid #f0f4ff;display:flex;gap:.6rem;flex-wrap:wrap;">
-          <input class="finput" id="sq" placeholder="🔍 Поиск..." oninput="rtable()" style="flex:1;min-width:120px;padding:.5rem .9rem;">
-          <select class="finput" id="sc" onchange="rtable()" style="padding:.5rem .9rem;">
+          <input class="finput" id="sq" placeholder="Поиск..." style="flex:1;min-width:120px;padding:.5rem .9rem;">
+          <select class="finput" id="sc" style="padding:.5rem .9rem;">
             <option value="">Все</option>
             <option value="jeans">Джинсы</option>
             <option value="cargo">Карго</option>
@@ -178,19 +153,21 @@ code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
           </select>
         </div>
         <div style="overflow-x:auto;">
-          <table><thead><tr><th>Фото</th><th>Название</th><th>Категория</th><th>Размер</th><th>Цена</th><th></th></tr></thead>
-          <tbody id="tbody"></tbody></table>
+          <table>
+            <thead><tr><th>Фото</th><th>Название</th><th>Кат.</th><th>Размер</th><th>Цена</th><th></th></tr></thead>
+            <tbody id="tbody"></tbody>
+          </table>
         </div>
       </div>
     </div>
 
     <div class="page" id="pg-add">
-      <div class="sech"><div class="sect">➕ Добавить <span>товар</span></div></div>
+      <div class="sech"><div class="sect">Добавить <span>товар</span></div></div>
       <div class="card">
-        <form id="aform" onsubmit="addProd(event)">
+        <form id="aform">
           <div class="fgrid">
             <div><label class="flabel">Название *</label><input class="finput" id="an" placeholder="LRG Jeans" required></div>
-            <div><label class="flabel">Цена (₽) *</label><input class="finput" id="ap" type="number" placeholder="7490" required></div>
+            <div><label class="flabel">Цена (руб.) *</label><input class="finput" id="ap" type="number" placeholder="7490" required></div>
             <div><label class="flabel">Категория</label>
               <select class="finput" id="ac">
                 <option value="jeans">Джинсы</option><option value="cargo">Карго</option>
@@ -200,8 +177,11 @@ code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
               </select>
             </div>
             <div><label class="flabel">Размер</label><input class="finput" id="as" placeholder="W32 L32 или XL"></div>
-            <div class="ff"><label class="flabel">Фото (URL)</label><input class="finput" id="ai" type="url" placeholder="https://i.ibb.co/..." oninput="prvw()"></div>
-            <div class="ff"><label class="flabel">Превью</label><div id="prev" style="width:70px;height:86px;border-radius:10px;background:#f0f4ff;border:2px dashed #e0e8ff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;overflow:hidden;margin-top:4px;">🖼️</div></div>
+            <div class="ff"><label class="flabel">Фото (URL)</label><input class="finput" id="ai" type="url" placeholder="https://i.ibb.co/..."></div>
+            <div class="ff">
+              <label class="flabel">Превью</label>
+              <div id="prev" style="width:70px;height:86px;border-radius:10px;background:#f0f4ff;border:2px dashed #e0e8ff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;overflow:hidden;margin-top:4px;">?</div>
+            </div>
             <div class="ff"><label class="flabel">Описание</label><textarea class="finput" id="ad" rows="3" placeholder="Краткое описание..."></textarea></div>
           </div>
           <div style="display:flex;gap:.8rem;margin-top:1rem;flex-wrap:wrap;">
@@ -214,26 +194,24 @@ code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
 
     <div class="page" id="pg-orders">
       <div class="sech">
-        <div class="sect">🛒 <span>Корзина</span> сайта</div>
-        <button class="pbtn" onclick="rorders()">Обновить</button>
+        <div class="sect">Корзина <span>сайта</span></div>
+        <button class="pbtn" id="btnRefresh">Обновить</button>
       </div>
       <div id="owrap"></div>
     </div>
 
     <div class="page" id="pg-settings">
-      <div class="sech"><div class="sect">⚙️ <span>Настройки</span></div></div>
+      <div class="sech"><div class="sect">Настройки</div></div>
       <div class="card">
-        <div class="srow"><div><div class="slbl">Сменить пароль</div><div class="sdesc">Пароль хранится в браузере</div></div><button class="pbtn" style="padding:.5rem 1.2rem;font-size:.78rem;" onclick="chpass()">Сменить</button></div>
-        <div class="srow"><div><div class="slbl">Экспорт товаров</div><div class="sdesc">Скачать JSON файл</div></div><button class="pbtn" style="padding:.5rem 1.2rem;font-size:.78rem;" onclick="exportJ()">Скачать</button></div>
-        <div class="srow"><div><div class="slbl">Удалить все товары</div><div class="sdesc">Очистить список</div></div><button class="sbtn sdel" style="padding:.5rem 1.2rem;" onclick="clearAll()">Удалить всё</button></div>
+        <div class="srow"><div><div class="slbl">Сменить пароль</div><div class="sdesc">Пароль хранится в браузере</div></div><button class="pbtn" id="btnChpass" style="padding:.5rem 1.2rem;font-size:.78rem;">Сменить</button></div>
+        <div class="srow"><div><div class="slbl">Экспорт товаров</div><div class="sdesc">Скачать JSON файл</div></div><button class="pbtn" id="btnExport" style="padding:.5rem 1.2rem;font-size:.78rem;">Скачать</button></div>
+        <div class="srow"><div><div class="slbl">Удалить все товары</div><div class="sdesc">Очистить список</div></div><button class="sbtn sdel" id="btnClear" style="padding:.5rem 1.2rem;">Удалить всё</button></div>
       </div>
       <div class="card" style="font-size:.8rem;color:#888;line-height:2;">
-        <b style="color:#111;">📌 GitHub Pages:</b><br>
-        1. Положи <code>index.html</code> и <code>admin.html</code> в один репозиторий<br>
-        2. Settings → Pages → Branch: main<br>
-        3. Сайт: <code>username.github.io/repo/</code><br>
-        4. Админка: <code>username.github.io/repo/admin.html</code><br>
-        5. Один домен = общий localStorage ✅
+        <b style="color:#111;">GitHub Pages:</b><br>
+        Сайт: <code>username.github.io/repo/</code><br>
+        Админка: <code>username.github.io/repo/admin.html</code><br>
+        Или: <code>00xwear.pw/admin.html</code>
       </div>
     </div>
   </main>
@@ -242,163 +220,207 @@ code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
 <div id="toast"></div>
 
 <script>
-var P = localStorage.getItem('p00x') || 'admin123';
+var PROD_KEY = 'adminProducts';
+var PASS_KEY = 'p00x';
+var CART_KEY = 'c00x';
 var prods = [];
 
-// LOGIN
-// login handled via inline onclick on button
-document.getElementById('lpass').onkeydown = function(e) {
-  if (e.key === 'Enter') document.getElementById('lbtn').click();
-};
+function getPass() {
+  return (localStorage.getItem(PASS_KEY) || 'admin123').trim();
+}
 
-function logout() {
-  if (confirm('Выйти?')) {
-    document.getElementById('lock').style.display = 'flex';
+function tryLogin() {
+  var v = document.getElementById('lpass').value.trim();
+  if (v === getPass()) {
+    document.getElementById('lock').style.display = 'none';
+    document.getElementById('lerr').style.display = 'none';
     document.getElementById('lpass').value = '';
+    init();
+  } else {
+    document.getElementById('lerr').style.display = 'block';
+    document.getElementById('lpass').select();
   }
 }
 
-// NAV
-function go(id, btn) {
-  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('on'); });
-  document.getElementById('pg-'+id).classList.add('on');
-  document.querySelectorAll('.nitem,.mnav button').forEach(function(b){ b.classList.remove('on'); });
-  if (btn) btn.classList.add('on');
-  if (id==='prods') rtable();
-  if (id==='dash') rdash();
-  if (id==='orders') rorders();
+function go(id) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('on'); });
+  var pg = document.getElementById('pg-' + id);
+  if (pg) pg.classList.add('on');
+  document.querySelectorAll('.nitem, .mnav button').forEach(function(b) {
+    b.classList.toggle('on', b.getAttribute('data-p') === id);
+  });
+  if (id === 'prods') rtable();
+  if (id === 'dash') rdash();
+  if (id === 'orders') rorders();
 }
 
-// PRODUCTS
-function load() { prods = JSON.parse(localStorage.getItem('adminProducts')||'[]'); }
-function save() { localStorage.setItem('adminProducts', JSON.stringify(prods)); }
+function loadP() { prods = JSON.parse(localStorage.getItem(PROD_KEY) || '[]'); }
+function saveP() { localStorage.setItem(PROD_KEY, JSON.stringify(prods)); }
 
 function addProd(e) {
   e.preventDefault();
-  load();
+  loadP();
   var n = document.getElementById('an').value.trim();
-  var p = parseInt(document.getElementById('ap').value)||0;
+  var p = parseInt(document.getElementById('ap').value) || 0;
   var c = document.getElementById('ac').value;
   var s = document.getElementById('as').value.trim();
   var i = document.getElementById('ai').value.trim();
   var d = document.getElementById('ad').value.trim();
-  prods.push({id:Date.now(),name:n,price:p,cat:c,size:s,img:i,desc:d,date:new Date().toLocaleDateString('ru-RU')});
-  save();
+  prods.push({ id: Date.now(), name: n, price: p, cat: c, size: s, img: i, desc: d, date: new Date().toLocaleDateString('ru-RU') });
+  saveP();
   document.getElementById('aform').reset();
-  document.getElementById('prev').innerHTML='🖼️';
-  toast('✅ «'+n+'» добавлен!');
+  document.getElementById('prev').innerHTML = '?';
+  toast('Товар ' + n + ' добавлен!');
   rstats();
 }
 
 function delProd(id) {
-  load();
-  var nm=(prods.find(function(x){return x.id===id;})||{}).name||'Товар';
-  if(!confirm('Удалить «'+nm+'»?'))return;
-  prods=prods.filter(function(x){return x.id!==id;});
-  save(); rtable(); rstats();
-  toast('🗑 «'+nm+'» удалён');
+  loadP();
+  var item = prods.find(function(x) { return x.id === id; });
+  var nm = item ? item.name : 'Товар';
+  if (!confirm('Удалить ' + nm + '?')) return;
+  prods = prods.filter(function(x) { return x.id !== id; });
+  saveP();
+  rtable();
+  rstats();
+  toast(nm + ' удалён');
 }
 
 function rtable() {
-  load();
-  var q=(document.getElementById('sq').value||'').toLowerCase();
-  var c=document.getElementById('sc').value;
-  var list=prods.filter(function(p){return(!q||p.name.toLowerCase().includes(q))&&(!c||p.cat===c);}).reverse();
-  var b=document.getElementById('tbody');
-  if(!list.length){b.innerHTML='<tr><td colspan="6"><div class="empty">📭 Нет товаров</div></td></tr>';return;}
-  b.innerHTML=list.map(function(p){
-    return '<tr>'+
-      '<td>'+(p.img?'<img src="'+p.img+'" class="thumb" onerror="this.style.display='none'">':'<div class="thumb" style="display:flex;align-items:center;justify-content:center;">📦</div>')+'</td>'+
-      '<td><b style="font-size:.88rem;">'+p.name+'</b><div style="font-size:.7rem;color:#aaa;">'+( p.date||'')+'</div></td>'+
-      '<td><span class="cbadge">'+p.cat+'</span></td>'+
-      '<td style="font-size:.83rem;">'+(p.size||'—')+'</td>'+
-      '<td style="font-weight:900;color:#0a74da;font-size:.88rem;">'+(p.price||0).toLocaleString('ru-RU')+' ₽</td>'+
-      '<td><button class="sbtn sdel" onclick="delProd('+p.id+')">🗑</button></td>'+
-      '</tr>';
-  }).join('');
+  loadP();
+  var q = (document.getElementById('sq').value || '').toLowerCase();
+  var cat = document.getElementById('sc').value;
+  var list = prods.filter(function(p) {
+    return (!q || p.name.toLowerCase().indexOf(q) !== -1) && (!cat || p.cat === cat);
+  }).reverse();
+  var b = document.getElementById('tbody');
+  if (!list.length) {
+    b.innerHTML = '<tr><td colspan="6"><div class="empty">Нет товаров</div></td></tr>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < list.length; i++) {
+    var p = list[i];
+    var img = p.img ? '<img src="' + p.img + '" class="thumb">' : '<div class="thumb" style="display:flex;align-items:center;justify-content:center;">?</div>';
+    html += '<tr><td>' + img + '</td><td><b style="font-size:.88rem;">' + p.name + '</b></td><td><span class="cbadge">' + p.cat + '</span></td><td style="font-size:.83rem;">' + (p.size || '-') + '</td><td style="font-weight:900;color:#0a74da;">' + (p.price || 0).toLocaleString('ru-RU') + ' руб.</td><td><button class="sbtn sdel" data-id="' + p.id + '">X</button></td></tr>';
+  }
+  b.innerHTML = html;
+  b.querySelectorAll('[data-id]').forEach(function(btn) {
+    btn.addEventListener('click', function() { delProd(Number(btn.getAttribute('data-id'))); });
+  });
 }
 
 function rstats() {
-  load();
-  var total=prods.length;
-  var sum=prods.reduce(function(s,p){return s+(p.price||0);},0);
-  var cats=(new Set(prods.map(function(p){return p.cat;}))).size;
-  var cart=JSON.parse(localStorage.getItem('c00x')||'[]').length;
-  var g=document.getElementById('stgrid');
-  if(!g)return;
-  g.innerHTML=[['📦',total,'Товаров'],['🏷️',cats,'Категорий'],['💰',sum.toLocaleString('ru-RU')+' ₽','Сумма'],['🛒',cart,'В корзине']].map(function(s){
-    return '<div class="stcard"><div class="sticon">'+s[0]+'</div><div class="stval">'+s[1]+'</div><div class="stlbl">'+s[2]+'</div></div>';
-  }).join('');
+  loadP();
+  var g = document.getElementById('stgrid');
+  if (!g) return;
+  var total = prods.length;
+  var sum = prods.reduce(function(s, p) { return s + (p.price || 0); }, 0);
+  var cats = (new Set(prods.map(function(p) { return p.cat; }))).size;
+  var cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]').length;
+  var items = [['Товаров', total], ['Категорий', cats], ['Сумма', sum.toLocaleString('ru-RU') + ' руб.'], ['В корзине', cart]];
+  var html = '';
+  for (var i = 0; i < items.length; i++) {
+    html += '<div class="stcard"><div class="stval">' + items[i][1] + '</div><div class="stlbl">' + items[i][0] + '</div></div>';
+  }
+  g.innerHTML = html;
 }
 
 function rdash() {
-  rstats(); load();
-  var d=document.getElementById('ddate');
-  if(d) d.textContent=new Date().toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'});
-  var r=document.getElementById('recent');
-  if(!r)return;
-  var last=prods.slice().reverse().slice(0,5);
-  if(!last.length){r.innerHTML='<div class="empty">📭 Нет товаров</div>';return;}
-  r.innerHTML=last.map(function(p){
-    return '<div style="display:flex;align-items:center;gap:1rem;padding:.65rem 0;border-bottom:1px solid #f0f4ff;">'+
-      (p.img?'<img src="'+p.img+'" style="width:34px;height:42px;object-fit:cover;border-radius:7px;flex-shrink:0" onerror="this.style.display='none'">':'<div style="width:34px;height:42px;border-radius:7px;background:#f0f4ff;display:flex;align-items:center;justify-content:center;">📦</div>')+
-      '<div style="flex:1"><b style="font-size:.86rem;">'+p.name+'</b><div style="font-size:.7rem;color:#aaa;">'+p.cat+(p.size?' · '+p.size:'')+'</div></div>'+
-      '<b style="color:#0a74da;font-size:.85rem;">'+(p.price||0).toLocaleString('ru-RU')+' ₽</b></div>';
-  }).join('');
+  rstats();
+  loadP();
+  var d = document.getElementById('ddate');
+  if (d) d.textContent = new Date().toLocaleDateString('ru-RU', { weekday: 'long', day: 'numeric', month: 'long' });
+  var r = document.getElementById('recent');
+  if (!r) return;
+  var last = prods.slice().reverse().slice(0, 5);
+  if (!last.length) { r.innerHTML = '<div class="empty">Нет товаров</div>'; return; }
+  var html = '';
+  for (var i = 0; i < last.length; i++) {
+    var p = last[i];
+    html += '<div style="display:flex;align-items:center;gap:1rem;padding:.65rem 0;border-bottom:1px solid #f0f4ff;"><div style="font-weight:700;font-size:.88rem;flex:1;">' + p.name + '</div><b style="color:#0a74da;font-size:.85rem;">' + (p.price || 0).toLocaleString('ru-RU') + ' руб.</b></div>';
+  }
+  r.innerHTML = html;
 }
 
 function rorders() {
-  var cart=JSON.parse(localStorage.getItem('c00x')||'[]');
-  var w=document.getElementById('owrap');
-  if(!w)return;
-  if(!cart.length){w.innerHTML='<div class="card"><div class="empty">🛒 Корзина пуста</div></div>';return;}
-  var total=cart.reduce(function(s,i){return s+(i.pn||0)*(i.q||1);},0);
-  w.innerHTML='<div class="card">'+
-    '<b style="display:block;margin-bottom:1rem;">Текущая корзина</b>'+
-    cart.map(function(i){
-      return '<div style="display:flex;align-items:center;gap:1rem;padding:.65rem 0;border-bottom:1px solid #f0f4ff;">'+
-        (i.src?'<img src="'+i.src+'" style="width:38px;height:46px;object-fit:cover;border-radius:7px;flex-shrink:0">':'')+
-        '<div style="flex:1"><b style="font-size:.86rem;">'+i.nm+'</b><div style="color:#0a74da;font-size:.78rem;">'+i.ps+'</div></div>'+
-        '<span style="font-size:.78rem;color:#aaa;">×'+(i.q||1)+'</span></div>';
-    }).join('')+
-    '<div style="text-align:right;padding-top:.8rem;font-weight:900;color:#0a74da;">Итого: '+total.toLocaleString('ru-RU')+' ₽</div></div>';
-}
-
-function prvw() {
-  var v=document.getElementById('ai').value;
-  var p=document.getElementById('prev');
-  p.innerHTML=v?'<img src="'+v+'" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.innerHTML='❌'">':'🖼️';
+  var cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+  var w = document.getElementById('owrap');
+  if (!w) return;
+  if (!cart.length) { w.innerHTML = '<div class="card"><div class="empty">Корзина пуста</div></div>'; return; }
+  var total = cart.reduce(function(s, i) { return s + (i.pn || 0) * (i.q || 1); }, 0);
+  var html = '<div class="card"><b style="display:block;margin-bottom:1rem;">Текущая корзина</b>';
+  for (var i = 0; i < cart.length; i++) {
+    var item = cart[i];
+    html += '<div style="display:flex;align-items:center;gap:1rem;padding:.65rem 0;border-bottom:1px solid #f0f4ff;"><div style="flex:1"><b style="font-size:.86rem;">' + item.nm + '</b></div><span style="font-size:.78rem;color:#aaa;">x' + (item.q || 1) + '</span></div>';
+  }
+  html += '<div style="text-align:right;padding-top:.8rem;font-weight:900;color:#0a74da;">Итого: ' + total.toLocaleString('ru-RU') + ' руб.</div></div>';
+  w.innerHTML = html;
 }
 
 function toast(msg) {
-  var t=document.getElementById('toast');
-  t.textContent=msg; t.style.opacity='1';
-  setTimeout(function(){t.style.opacity='0';},2600);
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  setTimeout(function() { t.style.opacity = '0'; }, 2600);
 }
 
-function chpass() {
-  var np=prompt('Новый пароль (мин. 4 символа):');
-  if(!np||np.length<4){alert('Слишком короткий');return;}
-  localStorage.setItem('p00x',np);
-  toast('🔑 Пароль изменён');
+function init() {
+  loadP();
+  rdash();
+  rorders();
 }
 
-function exportJ() {
-  load();
-  var b=new Blob([JSON.stringify(prods,null,2)],{type:'application/json'});
-  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='products.json';a.click();
-  toast('📥 Скачано');
-}
-
-function clearAll() {
-  if(!confirm('Удалить ВСЕ товары?'))return;
-  localStorage.setItem('adminProducts','[]');
-  prods=[];
-  rstats();
-  toast('🗑 Удалено');
-}
-
-function init() { load(); rdash(); rorders(); }
+// Bind all events after DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('lbtn').addEventListener('click', tryLogin);
+  document.getElementById('lpass').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tryLogin();
+  });
+  document.getElementById('btnSite').addEventListener('click', function() {
+    window.open('index.html', '_blank');
+  });
+  document.getElementById('btnLogout').addEventListener('click', function() {
+    if (confirm('Выйти?')) {
+      document.getElementById('lock').style.display = 'flex';
+      document.getElementById('lpass').value = '';
+    }
+  });
+  document.querySelectorAll('[data-p]').forEach(function(btn) {
+    btn.addEventListener('click', function() { go(btn.getAttribute('data-p')); });
+  });
+  document.getElementById('btnGoAdd').addEventListener('click', function() { go('add'); });
+  document.getElementById('btnRefresh').addEventListener('click', rorders);
+  document.getElementById('aform').addEventListener('submit', addProd);
+  document.getElementById('ai').addEventListener('input', function() {
+    var p = document.getElementById('prev');
+    p.innerHTML = this.value ? '<img src="' + this.value + '" style="width:100%;height:100%;object-fit:cover">' : '?';
+  });
+  document.getElementById('sq').addEventListener('input', rtable);
+  document.getElementById('sc').addEventListener('change', rtable);
+  document.getElementById('btnChpass').addEventListener('click', function() {
+    var np = prompt('Новый пароль (мин. 4 символа):');
+    if (!np || np.length < 4) { alert('Слишком короткий'); return; }
+    localStorage.setItem(PASS_KEY, np);
+    toast('Пароль изменён');
+  });
+  document.getElementById('btnExport').addEventListener('click', function() {
+    loadP();
+    var blob = new Blob([JSON.stringify(prods, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'products.json';
+    a.click();
+    toast('Файл скачан');
+  });
+  document.getElementById('btnClear').addEventListener('click', function() {
+    if (!confirm('Удалить ВСЕ товары?')) return;
+    localStorage.setItem(PROD_KEY, '[]');
+    prods = [];
+    rstats();
+    toast('Все товары удалены');
+  });
+});
 </script>
 </body>
 </html>

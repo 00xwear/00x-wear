@@ -2202,6 +2202,83 @@ body::after { transition: opacity 0.3s; }
 </div>
 </div>
 </div>
+
+<script>
+(function() {
+  var PROD_KEY = 'adminProducts';
+  function renderAdminProducts() {
+    var grid = document.getElementById('catalogGrid');
+    if (!grid) return;
+    // Remove previously injected admin cards
+    grid.querySelectorAll('.admin-injected').forEach(function(el) { el.remove(); });
+    var prods = [];
+    try { prods = JSON.parse(localStorage.getItem(PROD_KEY) || '[]'); } catch(e) {}
+    if (!prods.length) return;
+    prods.forEach(function(p) {
+      var card = document.createElement('div');
+      card.className = 'product-card reveal admin-injected';
+      card.setAttribute('data-price', p.price || 0);
+      card.setAttribute('data-size', p.size || '');
+      card.setAttribute('data-category', p.cat || 'other');
+      var imgHtml = p.img
+        ? '<img src="' + p.img + '" style="width:100%;height:100%;object-fit:cover;display:block;">'
+        : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:#f5f8ff;">&#128248;</div>';
+      var badge = p.size ? '<span class="product-badge">' + p.size + '</span>' : '';
+      card.innerHTML =
+        '<div class="product-img" style="position:relative;">' +
+          imgHtml + badge +
+        '</div>' +
+        '<div class="product-body">' +
+          '<div class="product-cat">' + (p.cat || 'other') + '</div>' +
+          '<div class="product-name">' + p.name + '</div>' +
+          (p.desc ? '<div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;">' + p.desc + '</div>' : '') +
+          '<div class="product-price">' + (p.price || 0).toLocaleString('ru-RU') + ' ₽</div>' +
+          '<button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i></button>' +
+          '<div class="buy-block" style="position:relative;margin-top:1rem;">' +
+            '<button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);" onclick="event.stopPropagation();this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">&#128722; Купить</button>' +
+            '<div class="perfect-menu" style="position:absolute;bottom:115%;left:50%;transform:translateX(-50%);background:#fff;border-radius:20px;padding:12px;box-shadow:0 24px 64px rgba(0,0,0,0.3);min-width:260px;display:none;z-index:9999;border:1px solid #e8f0fe;">' +
+              '<a href="https://www.instagram.com/00xwear" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;"><i class="fab fa-instagram me-3" style="color:#e4405f;font-size:1.2rem;vertical-align:middle;"></i> Instagram</a>' +
+              '<a href="https://t.me/manager00xwear" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;"><i class="fab fa-telegram me-3" style="color:#0088cc;font-size:1.2rem;vertical-align:middle;"></i> Telegram</a>' +
+              '<a href="https://vk.ru/00x.wear" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;"><i class="fab fa-vk me-3" style="color:#4680c2;font-size:1.2rem;vertical-align:middle;"></i> VK</a>' +
+              '<a href="https://www.avito.ru/brands/0af94a4661bea0491d539cf6bcdf9565" target="_blank" style="display:block;padding:16px 20px;color:#333;text-decoration:none;font-weight:600;font-size:1rem;border-radius:16px;transition:all 0.3s;margin:2px 0;"><i class="fas fa-store me-3" style="color:#ff9900;font-size:1.2rem;vertical-align:middle;"></i> Avito</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
+      // Observe for reveal animation
+      if (window._revealObserver) window._revealObserver.observe(card);
+    });
+    // Re-check cart states for new cards
+    if (typeof C !== 'undefined' && typeof cBadgeUp === 'function') {
+      grid.querySelectorAll('.admin-injected .btn-cart').forEach(function(btn) {
+        var card = btn.closest('.product-card');
+        var nm = card.querySelector('.product-name') ? card.querySelector('.product-name').innerText.trim() : '';
+        if (C.some(function(i) { return i.nm === nm; })) {
+          btn.innerHTML = '<i class="fas fa-check"></i>';
+          btn.disabled = true;
+          btn.style.background = '#f0f0f0';
+          btn.style.color = '#aaa';
+        }
+      });
+    }
+  }
+  // Store observer globally for use above
+  document.addEventListener('DOMContentLoaded', function() {
+    window._revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    renderAdminProducts();
+    // Re-render when localStorage changes (from admin panel in same tab)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'adminProducts') renderAdminProducts();
+    });
+  });
+  // Expose for manual refresh
+  window.renderAdminProducts = renderAdminProducts;
+})();
+</script>
 </section>
 
 <!-- ОТЗЫВЫ -->

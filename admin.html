@@ -177,7 +177,7 @@ code{background:#f0f4ff;padding:2px 7px;border-radius:5px;font-size:.75rem;}
               </select>
             </div>
             <div><label class="flabel">Размер</label><input class="finput" id="as" placeholder="W32 L32 или XL"></div>
-            <div class="ff"><label class="flabel">Фото (URL)</label><input class="finput" id="ai" type="url" placeholder="https://i.ibb.co/..."></div>
+            <div class="ff"><label class="flabel">Фото (URL)</label><input class="finput" id="ai" type="text" placeholder="https://i.ibb.co/..."></div>
             <div class="ff">
               <label class="flabel">Превью</label>
               <div id="prev" style="width:70px;height:86px;border-radius:10px;background:#f0f4ff;border:2px dashed #e0e8ff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;overflow:hidden;margin-top:4px;">?</div>
@@ -260,17 +260,17 @@ function saveP() { localStorage.setItem(PROD_KEY, JSON.stringify(prods)); }
 function addProd(e) {
   e.preventDefault();
   loadP();
-  var n = document.getElementById('an').value.trim();
-  var p = parseInt(document.getElementById('ap').value) || 0;
-  var c = document.getElementById('ac').value;
-  var s = document.getElementById('as').value.trim();
-  var i = document.getElementById('ai').value.trim();
-  var d = document.getElementById('ad').value.trim();
-  prods.push({ id: Date.now(), name: n, price: p, cat: c, size: s, img: i, desc: d, date: new Date().toLocaleDateString('ru-RU') });
+  var name = document.getElementById('an').value.trim();
+  var price = parseInt(document.getElementById('ap').value) || 0;
+  var cat = document.getElementById('ac').value;
+  var size = document.getElementById('as').value.trim();
+  var img = document.getElementById('ai').value.trim();
+  var desc = document.getElementById('ad').value.trim();
+  prods.push({ id: Date.now(), name: name, price: price, cat: cat, size: size, img: img, desc: desc, date: new Date().toLocaleDateString('ru-RU') });
   saveP();
   document.getElementById('aform').reset();
   document.getElementById('prev').innerHTML = '?';
-  toast('Товар ' + n + ' добавлен!');
+  toast('Товар ' + name + ' добавлен!');
   rstats();
 }
 

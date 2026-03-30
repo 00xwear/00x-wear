@@ -75,14 +75,14 @@ section{padding:100px 0;scroll-margin-top:80px;}
 
 /* КАТАЛОГ */
 #catalog{background:#fff;}
-.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;}
-.product-card{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 16px 56px rgba(10,116,218,0.1);transition:all 0.4s;cursor:default;}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;align-items:stretch;}
+.product-card{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 16px 56px rgba(10,116,218,0.1);transition:all 0.4s;cursor:default;display:flex;flex-direction:column;height:100%;}
 .product-card:hover{transform:translateY(-16px);box-shadow:0 40px 100px rgba(10,116,218,0.2);}
 .product-img{aspect-ratio:3/4;overflow:hidden;position:relative;background:#f5f8ff;}
 .product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
 .product-card:hover .product-img img{transform:scale(1.08);}
 .product-badge{position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;}
-.product-body{padding:1.8rem;}
+.product-body{padding:1.8rem;display:flex;flex-direction:column;flex:1;}
 .product-cat{font-size:0.75rem;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:0.5rem;}
 .product-name{font-size:1.4rem;font-weight:900;color:#111;margin-bottom:0.8rem;}
 .product-price{font-size:1.7rem;font-weight:900;color:var(--blue);}
@@ -300,9 +300,63 @@ footer{background:#f0f4ff;padding:3rem 0 2rem;border-top:1px solid rgba(10,116,2
 
 .btn-cart{pointer-events:all!important;cursor:pointer!important;}
 
+
+.price-old {
+  text-decoration: line-through;
+  color: #aaa;
+  font-size: 0.82em;
+  display: block;
+  line-height: 1.4;
+}
+.price-new {
+  color: #e53935;
+  font-weight: 800;
+  font-size: 1em;
+  display: block;
+  line-height: 1.4;
+}
+.price-badge {
+  background: #e53935;
+  color: white;
+  font-size: 0.65em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  display: inline-block;
+}
+.price-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+  margin-top: 2px;
+}
+.product-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.product-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+.buy-block {
+  margin-top: auto !important;
+  padding-top: 12px;
+}
+.btn-cart {
+  margin-bottom: 8px !important;
+}
 </style>
-<style>.btn-cart{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:0.7rem;padding:0.7rem 1rem;border-radius:50px;border:1.5px solid #c5dff8;background:#eaf4ff;color:#0a74da;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;}.btn-cart:hover{background:#0a74da;color:#fff;border-color:transparent;}.sbtn{padding:0.42rem 1.1rem;border-radius:50px;border:2px solid rgba(10,116,218,0.2);background:#fff;color:#555;font-weight:700;font-size:0.8rem;cursor:pointer;transition:all 0.2s;}.sbtn.active,.sbtn:hover{background:linear-gradient(135deg,#0a74da,#42a5f5);color:#fff;border-color:transparent;}@media(max-width:600px){.catalog-grid{grid-template-columns:1fr 1fr!important;gap:0.8rem!important;}.product-body{padding:0.8rem!important;}.btn-cart{font-size:0.75rem!important;padding:0.55rem!important;}}</style>
-<style id="cart-css">.btn-cart{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:0.7rem;padding:0.7rem 1rem;border-radius:50px;border:1.5px solid #c5dff8;background:#eaf4ff;color:#0a74da;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;pointer-events:all!important;}.btn-cart:hover{background:#0a74da;color:#fff;border-color:transparent;}.btn-cart:disabled{background:#f0f0f0;color:#aaa;border-color:#ddd;cursor:not-allowed;}</style>
+<style>.btn-cart{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:0.7rem;padding:0.7rem 1rem;border-radius:14px;border:1.5px solid #c5dff8;background:#eaf4ff;color:#0a74da;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;}.btn-cart:hover{background:#0a74da;color:#fff;border-color:transparent;}.sbtn{padding:0.42rem 1.1rem;border-radius:50px;border:2px solid rgba(10,116,218,0.2);background:#fff;color:#555;font-weight:700;font-size:0.8rem;cursor:pointer;transition:all 0.2s;}.sbtn.active,.sbtn:hover{background:linear-gradient(135deg,#0a74da,#42a5f5);color:#fff;border-color:transparent;}@media(max-width:600px){.catalog-grid{grid-template-columns:1fr 1fr!important;gap:0.8rem!important;}.product-body{padding:0.8rem!important;}.btn-cart{font-size:0.75rem!important;padding:0.55rem!important;}}
+@media(max-width:600px){
+  .product-card{height:100%!important;display:flex!important;flex-direction:column!important;}
+  .product-body{display:flex!important;flex-direction:column!important;flex:1!important;}
+  .buy-block{margin-top:auto!important;padding-top:8px!important;}
+}
+</style>
+<style id="cart-css">.btn-cart{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:0.7rem;padding:0.7rem 1rem;border-radius:14px;border:1.5px solid #c5dff8;background:#eaf4ff;color:#0a74da;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;pointer-events:all!important;}.btn-cart:hover{background:#0a74da;color:#fff;border-color:transparent;}.btn-cart:disabled{background:#f0f0f0;color:#aaa;border-color:#ddd;cursor:not-allowed;}</style>
 
 
 
@@ -423,7 +477,7 @@ section, header, footer, nav, .hero, .navbar,
 .btn-cart {
   display: flex; align-items: center; justify-content: center; gap: 7px;
   width: 100%; margin-top: 0.7rem; padding: 0.7rem 1rem;
-  border-radius: 50px; border: 1.5px solid #c5dff8;
+  border-radius: 14px; border: 1.5px solid #c5dff8;
   background: #eaf4ff; color: #0a74da;
   font-size: 0.88rem; font-weight: 700; cursor: pointer;
   transition: all 0.2s; pointer-events: all !important;
@@ -624,6 +678,28 @@ body::after { transition: opacity 0.3s; }
 }
 [data-theme="dark"] .footer-socials a { color: #7dd3fc !important; }
 </style>
+
+<style id="btn-fix-final">
+/* btn-cart сверху, buy-block снизу — колонка, одинаковая ширина */
+.buy-block {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+  padding-top: 12px !important;
+  position: relative !important;
+}
+.btn-cart {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.btn-buy-perfect {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style>
 </head>
 <body>
 
@@ -787,11 +863,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;55 &nbsp;·&nbsp; Длина&nbsp;111 &nbsp;·&nbsp; Ляха&nbsp;39 &nbsp;·&nbsp; Выход&nbsp;27<br>
 <span style="color:#e65100;">Задники побиты</span> — редкий фит 🔥
 </div>
-<div class="product-price">9 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−32%</span><span class="price-old">9 490 ₽</span><span class="price-new">6 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -829,11 +904,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;49 &nbsp;·&nbsp; Длина&nbsp;111 &nbsp;·&nbsp; Ляха&nbsp;40 &nbsp;·&nbsp; Выход&nbsp;26<br>
 <span style="color:#e65100;">Задники побиты</span> — легенда 👑
 </div>
-<div class="product-price">7 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−33%</span><span class="price-old">7 490 ₽</span><span class="price-new">5 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -871,11 +945,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;51 &nbsp;·&nbsp; Длина&nbsp;113 &nbsp;·&nbsp; Ляха&nbsp;42 &nbsp;·&nbsp; Выход&nbsp;26 &nbsp;·&nbsp; W44<br>
 <span style="color:#2e7d32;">Состояние как с магазина, небитые ✅</span>
 </div>
-<div class="product-price">8 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−23%</span><span class="price-old">8 490 ₽</span><span class="price-new">6 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -910,11 +983,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;76 &nbsp;·&nbsp; Ширина&nbsp;72<br>
 <span style="color:#2e7d32;">Прекрасное состояние ✅</span></div>
-<div class="product-price">6 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−36%</span><span class="price-old">6 990 ₽</span><span class="price-new">4 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -952,11 +1024,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;50 &nbsp;·&nbsp; Длина&nbsp;102 &nbsp;·&nbsp; Ляха&nbsp;40 &nbsp;·&nbsp; Выход&nbsp;26<br>
 <span style="color:#e65100;">Задники подбиты</span> — мегакрутой бренд 🔥
 </div>
-<div class="product-price">9 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−32%</span><span class="price-old">9 490 ₽</span><span class="price-new">6 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -992,11 +1063,10 @@ body::after { transition: opacity 0.3s; }
 <div class="product-name">Southpole Red Tab Jeans</div>
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 ПП&nbsp;58 &nbsp;·&nbsp; Длина&nbsp;111 &nbsp;·&nbsp; Ляха&nbsp;48 &nbsp;·&nbsp; Выход&nbsp;29</div>
-<div class="product-price">14 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−24%</span><span class="price-old">14 490 ₽</span><span class="price-new">11 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1033,11 +1103,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 ПП&nbsp;47 &nbsp;·&nbsp; Длина&nbsp;104 &nbsp;·&nbsp; Ляха&nbsp;39 &nbsp;·&nbsp; Выход&nbsp;27 &nbsp;·&nbsp; W38<br>
 <span style="color:#2e7d32;">Состояние 10/10 ✅</span></div>
-<div class="product-price">8 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−18%</span><span class="price-old">8 490 ₽</span><span class="price-new">7 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1073,11 +1142,10 @@ body::after { transition: opacity 0.3s; }
 <div class="product-name">Southpole Crossbone Bomber</div>
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;68 &nbsp;·&nbsp; Ширина&nbsp;59</div>
-<div class="product-price">7 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−13%</span><span class="price-old">7 490 ₽</span><span class="price-new">6 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1111,11 +1179,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;77 &nbsp;·&nbsp; Ширина&nbsp;66
 </div>
-<div class="product-price">11 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−26%</span><span class="price-old">11 490 ₽</span><span class="price-new">8 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1149,11 +1216,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;80 &nbsp;·&nbsp; Ширина&nbsp;62
 </div>
-<div class="product-price">4 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−33%</span><span class="price-old">4 490 ₽</span><span class="price-new">3 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1189,10 +1255,10 @@ body::after { transition: opacity 0.3s; }
 Длина&nbsp;75 &nbsp;·&nbsp; Ширина&nbsp;60
 </div>
 <div class="product-price">2 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">торг имеется</div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1228,11 +1294,10 @@ body::after { transition: opacity 0.3s; }
 Длина&nbsp;80 &nbsp;·&nbsp; Ширина&nbsp;63<br>
 <span style="color:#e65100;">Немного выцвел</span> · Без дефектов ✅
 </div>
-<div class="product-price">8 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−23%</span><span class="price-old">8 490 ₽</span><span class="price-new">6 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1270,11 +1335,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;43 &nbsp;·&nbsp; Длина&nbsp;112 &nbsp;·&nbsp; Ляха&nbsp;37 &nbsp;·&nbsp; Выход&nbsp;25<br>
 <span style="color:#2e7d32;">Задники целые · Без дефектов ✅</span>
 </div>
-<div class="product-price">6 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−21%</span><span class="price-old">6 990 ₽</span><span class="price-new">5 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1313,10 +1377,10 @@ body::after { transition: opacity 0.3s; }
 <span style="color:#2e7d32;">Плотные · Без дефектов ✅</span>
 </div>
 <div class="product-price">8 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">торг имеется</div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1354,11 +1418,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;49 &nbsp;·&nbsp; Длина&nbsp;117 &nbsp;·&nbsp; Ляха&nbsp;40 &nbsp;·&nbsp; Выход&nbsp;27<br>
 <span style="color:#2e7d32;">Без дефектов · Плотный материал ✅</span>
 </div>
-<div class="product-price">9 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−26%</span><span class="price-old">9 490 ₽</span><span class="price-new">7 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1398,11 +1461,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;48 &nbsp;·&nbsp; Длина&nbsp;118 &nbsp;·&nbsp; Ляха&nbsp;41 &nbsp;·&nbsp; Выход&nbsp;26<br>
 <span style="color:#2e7d32;">Без дефектов · Принт на задних карманах ✅</span>
 </div>
-<div class="product-price">9 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−26%</span><span class="price-old">9 490 ₽</span><span class="price-new">7 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1440,11 +1502,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;52 &nbsp;·&nbsp; Длина&nbsp;94 &nbsp;·&nbsp; Ляха&nbsp;40 &nbsp;·&nbsp; Выход&nbsp;26<br>
 <span style="color:#2e7d32;">Большие · Крутые ✅</span>
 </div>
-<div class="product-price">7 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−20%</span><span class="price-old">7 490 ₽</span><span class="price-new">6 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1478,11 +1539,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 <span style="color:#2e7d32;">Большой · Скейтерский · Красивый ✅</span>
 </div>
-<div class="product-price">4 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−10%</span><span class="price-old">4 990 ₽</span><span class="price-new">4 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1505,7 +1565,7 @@ body::after { transition: opacity 0.3s; }
 </div>
 
 <!-- Snoop Dogg Hoodie -->
-<div class="product-card reveal" data-price="5490" data-size="XL" data-category="hoodies">
+<div class="product-card reveal" data-price="4999" data-size="XL" data-category="hoodies">
 <div class="product-img" style="position:relative;">
 <img src="https://i.ibb.co/WvK5X2sw/photo-39-2026-03-20-10-12-33.jpg" alt="Snoop Dogg Hoodie XL" style="width:100%;height:100%;object-fit:cover;display:block;">
 <span class="product-badge">XL</span>
@@ -1517,11 +1577,10 @@ body::after { transition: opacity 0.3s; }
 Длина&nbsp;79 &nbsp;·&nbsp; Ширина&nbsp;60<br>
 <span style="color:#2e7d32;">Без дефектов · Легенда ✅</span>
 </div>
-<div class="product-price">5 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−18%</span><span class="price-old">5 490 ₽</span><span class="price-new">4 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1556,11 +1615,10 @@ body::after { transition: opacity 0.3s; }
 Длина&nbsp;76 &nbsp;·&nbsp; Ширина&nbsp;63<br>
 <span style="color:#2e7d32;">Без дефектов ✅</span>
 </div>
-<div class="product-price">5 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−18%</span><span class="price-old">5 490 ₽</span><span class="price-new">4 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1595,10 +1653,10 @@ body::after { transition: opacity 0.3s; }
 Длина&nbsp;72 &nbsp;·&nbsp; Ширина&nbsp;60
 </div>
 <div class="product-price">4 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">торг имеется</div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1632,11 +1690,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;77 &nbsp;·&nbsp; Ширина&nbsp;66
 </div>
-<div class="product-price">4 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−20%</span><span class="price-old">4 990 ₽</span><span class="price-new">4 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1670,11 +1727,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;72 &nbsp;·&nbsp; Ширина&nbsp;65
 </div>
-<div class="product-price">5 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−18%</span><span class="price-old">5 490 ₽</span><span class="price-new">4 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1708,11 +1764,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;70 &nbsp;·&nbsp; Ширина&nbsp;60
 </div>
-<div class="product-price">4 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−15%</span><span class="price-old">4 490 ₽</span><span class="price-new">3 800 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1748,10 +1803,10 @@ body::after { transition: opacity 0.3s; }
 <span style="color:#2e7d32;">Без дефектов ✅</span>
 </div>
 <div class="product-price">4 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">торг имеется</div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1788,11 +1843,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;70 &nbsp;·&nbsp; Ширина&nbsp;60
 </div>
-<div class="product-price">4 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−11%</span><span class="price-old">4 490 ₽</span><span class="price-new">4 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1826,11 +1880,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;73 &nbsp;·&nbsp; Ширина&nbsp;61
 </div>
-<div class="product-price">4 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−20%</span><span class="price-old">4 990 ₽</span><span class="price-new">4 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1867,11 +1920,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 Длина&nbsp;77 &nbsp;·&nbsp; Ширина&nbsp;64
 </div>
-<div class="product-price">4 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−20%</span><span class="price-old">4 990 ₽</span><span class="price-new">4 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1919,11 +1971,10 @@ body::after { transition: opacity 0.3s; }
 Длина&nbsp;73 &nbsp;·&nbsp; Ширина&nbsp;63<br>
 <span style="color:#e65100;">Имеются дефекты ⚠️</span>
 </div>
-<div class="product-price">4 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−22%</span><span class="price-old">4 490 ₽</span><span class="price-new">3 500 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -1961,11 +2012,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;55 &nbsp;·&nbsp; Длина&nbsp;106 &nbsp;·&nbsp; Ляха&nbsp;44 &nbsp;·&nbsp; Выход&nbsp;32<br>
 <span style="color:#e65100;">Задники побиты</span> · Без остальных дефектов ✅
 </div>
-<div class="product-price">7 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−11%</span><span class="price-old">7 490 ₽</span><span class="price-new">6 700 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -2002,11 +2052,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 ПП&nbsp;49 &nbsp;·&nbsp; Длина&nbsp;116 &nbsp;·&nbsp; Ляха&nbsp;39 &nbsp;·&nbsp; Выход&nbsp;27
 </div>
-<div class="product-price">6 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−14%</span><span class="price-old">6 990 ₽</span><span class="price-new">6 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -2043,11 +2092,10 @@ body::after { transition: opacity 0.3s; }
 <div style="font-size:0.82rem;color:#888;margin-bottom:0.8rem;line-height:1.8;">
 ПП&nbsp;50 &nbsp;·&nbsp; Длина&nbsp;117 &nbsp;·&nbsp; Ляха&nbsp;42 &nbsp;·&nbsp; Выход&nbsp;28.5
 </div>
-<div class="product-price">6 490 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−8%</span><span class="price-old">6 490 ₽</span><span class="price-new">6 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -2086,10 +2134,10 @@ body::after { transition: opacity 0.3s; }
 <span style="color:#2e7d32;">Без дефектов ✅</span>
 </div>
 <div class="product-price">7 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">торг имеется</div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -2127,10 +2175,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;56 &nbsp;·&nbsp; Длина&nbsp;111 &nbsp;·&nbsp; Ляха&nbsp;46 &nbsp;·&nbsp; Выход&nbsp;27
 </div>
 <div class="product-price">7 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">торг имеется</div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -2168,11 +2216,10 @@ body::after { transition: opacity 0.3s; }
 ПП&nbsp;46 &nbsp;·&nbsp; Длина&nbsp;116 &nbsp;·&nbsp; Ляха&nbsp;36 &nbsp;·&nbsp; Выход&nbsp;25<br>
 <span style="color:#e65100;">Задники побиты</span> · Крутой принт 🔥
 </div>
-<div class="product-price">6 990 ₽</div>
-<div style="font-size:0.8rem;color:var(--blue);margin-top:0.4rem;">Имеется торг</div>
+<div class="product-price"><div class="price-row"><span class="price-badge">−14%</span><span class="price-old">6 990 ₽</span><span class="price-new">6 000 ₽</span><span style="font-size:0.72rem;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap;">торг имеется</span></div></div>
 
 <button class="btn-cart" onclick="event.stopPropagation();doAdd(this,this.closest('.product-card'))"><i class="fas fa-shopping-cart"></i> В корзину</button>
-<div class="buy-block" style="position:relative;margin-top:1rem;">
+<div class="buy-block" style="position:relative;">
 <button class="btn-buy-perfect" style="width:100%;padding:0.9rem 1.2rem;border-radius:14px;border:none;background:linear-gradient(135deg,#0a74da,#42a5f5);color:white;font-size:1rem;font-weight:800;cursor:default;transition:all 0.3s;box-shadow:0 8px 24px rgba(10,116,218,0.3);letter-spacing:0.5px;"  >
 🛒 КУПИТЬ
 </button>
@@ -2752,10 +2799,12 @@ function doAdd(btn,card){
     btn.innerHTML='<i class="fas fa-check"></i> В корзине';btn.disabled=true;
     btn.style.background='#f0f0f0';btn.style.color='#aaa';return;
   }
-  var ps=card.querySelector('.product-price')?card.querySelector('.product-price').innerText.trim():'';
+  var priceEl=card.querySelector('.product-price');
+  var priceNew=card.querySelector('.price-new');
+  var ps=priceNew?priceNew.innerText.trim():(priceEl?priceEl.innerText.trim():'');
   var ig=card.querySelector('.slide-img')||card.querySelector('.product-img img');
   var src=ig?ig.src:'';
-  var pn=parseInt(ps.replace(/[^0-9]/g,''))||0;
+  var pn=parseInt(card.getAttribute('data-price'))||parseInt(ps.replace(/[^0-9]/g,''))||0;
   C.push({nm:nm,ps:ps,src:src,pn:pn,q:1,id:Date.now()});
   localStorage.setItem('c00x',JSON.stringify(C));
   cBadgeUp();cRender();
@@ -2826,5 +2875,25 @@ function doSort(){
 }
 </script>
 <button id="themeToggle" onclick="toggleTheme()" title="Сменить тему">🌙</button>
+
+<style>
+.product-body {
+  display: grid !important;
+  grid-template-rows: auto auto auto auto 1fr auto !important;
+}
+.btn-cart { margin-top: 0 !important; }
+.buy-block { align-self: end !important; margin-top: 0 !important; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.product-card').forEach(function(card) {
+    var cart = card.querySelector('.btn-cart');
+    var buyBlock = card.querySelector('.buy-block');
+    if (!cart || !buyBlock || buyBlock.contains(cart)) return;
+    buyBlock.insertBefore(cart, buyBlock.firstChild);
+  });
+});
+</script>
 </body>
 </html>
